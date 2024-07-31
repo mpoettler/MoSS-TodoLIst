@@ -1,0 +1,23 @@
+# Beitragende Leitlinien
+
+## Branching Strategie
+
+### Haupt-Branches
+- `main`: Enthält den stabilen und produktionsreifen Code.
+- `develop`: Enthält den aktuellen Entwicklungsstand.
+
+### Neben-Branches
+- `feature/<beschreibung>`: Für die Entwicklung neuer Features.
+- `bugfix/<beschreibung>`: Für die Behebung von Fehlern.
+- `release/<version>`: Für die Vorbereitung einer neuen Version.
+- `hotfix/<beschreibung>`: Für dringende Fehlerbehebungen in der Produktion.
+
+## Prozess für Pull Requests
+1. Erstelle einen Branch basierend auf `develop`.
+2. Implementiere deine Änderungen.
+3. Stelle sicher, dass alle Tests erfolgreich sind.
+4. Öffne einen Pull Request gegen `develop`.
+
+
+
+
