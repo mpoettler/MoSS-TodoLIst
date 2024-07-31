@@ -32,15 +32,12 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Change directory to app
-      run: cd app
-
     - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew
+      run: chmod +x app/gradlew
 
     - name: Build with Gradle
       run: ./gradlew build
-      working-directory: ./app
+      working-directory: app
 
   test:
     runs-on: ubuntu-latest
@@ -55,15 +52,12 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Change directory to app
-      run: cd app
-
     - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew
+      run: chmod +x app/gradlew
 
     - name: Run tests with Gradle
       run: ./gradlew test
-      working-directory: ./app
+      working-directory: app
 
   deploy:
     needs: [build, test]
@@ -80,11 +74,8 @@ jobs:
         java-version: '11'
         distribution: 'adopt'
 
-    - name: Change directory to app
-      run: cd app
-
     - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew
+      run: chmod +x app/gradlew
 
     - name: Deploy to Production
       env:
@@ -93,4 +84,4 @@ jobs:
         PRODUCTION_USER: ${{ secrets.PRODUCTION_USER }}
         PRODUCTION_PASSWORD: ${{ secrets.PRODUCTION_PASSWORD }}
       run: ./deploy.sh
-      working-directory: ./app
+      working-directory: app
