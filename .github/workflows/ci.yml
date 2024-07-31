@@ -30,6 +30,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'  
 
     - name: Build with Gradle
       run: ./gradlew build
@@ -45,6 +46,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'  
 
     - name: Run tests with Gradle
       run: ./gradlew test
@@ -62,8 +64,12 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '11'
+        distribution: 'adopt'  
 
     - name: Deploy to Production
       env:
         API_KEY: ${{ secrets.API_KEY }}
+        PRODUCTION_SERVER: ${{ secrets.PRODUCTION_SERVER }}
+        PRODUCTION_USER: ${{ secrets.PRODUCTION_USER }}
+        PRODUCTION_PASSWORD: ${{ secrets.PRODUCTION_PASSWORD }}
       run: ./deploy.sh
