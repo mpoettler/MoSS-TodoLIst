@@ -1,6 +1,6 @@
 ﻿namespace ToDoListAppBackend.Dtos
 {
-    public class TaskDto
+    public class ToDoItemDto
     {
         public int Id { get; set; }
         public string Title { get; set; }

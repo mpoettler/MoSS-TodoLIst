@@ -1,6 +1,6 @@
 ﻿namespace ToDoListAppBackend.Models
 {
-    public class Task
+    public class ToDoItem
     {
         public int Id { get; set; }
         public string Title { get; set; }

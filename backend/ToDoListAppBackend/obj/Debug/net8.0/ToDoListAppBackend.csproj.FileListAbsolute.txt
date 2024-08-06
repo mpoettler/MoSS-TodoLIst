@@ -31,3 +31,7 @@ C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\obj\
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\obj\Debug\net8.0\ToDoListAppBackend.pdb
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\obj\Debug\net8.0\ToDoListAppBackend.genruntimeconfig.cache
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\obj\Debug\net8.0\ref\ToDoListAppBackend.dll
+C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
