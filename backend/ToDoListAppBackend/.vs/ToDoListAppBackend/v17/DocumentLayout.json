@@ -75,8 +75,7 @@
               "RelativeToolTip": "Controllers\\ToDoItemController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAD8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T14:01:29.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T14:01:29.435Z"
             },
             {
               "$type": "Document",
@@ -88,8 +87,7 @@
               "RelativeToolTip": "Services\\ToDoItemService.cs",
               "ViewState": "AQIAAEMAAAAAAAAAAADwv0wAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T14:01:15.342Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T14:01:15.342Z"
             },
             {
               "$type": "Document",
@@ -101,8 +99,7 @@
               "RelativeToolTip": "Services\\IToDoItemService.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T14:00:59.368Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T14:00:59.368Z"
             },
             {
               "$type": "Document",
@@ -114,8 +111,7 @@
               "RelativeToolTip": "Repositories\\ToDoItemRepository.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAAABQAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T14:00:39.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T14:00:39.864Z"
             },
             {
               "$type": "Document",
@@ -127,8 +123,7 @@
               "RelativeToolTip": "Repositories\\IToDoItemRepository.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T13:56:02.556Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T13:56:02.556Z"
             },
             {
               "$type": "Document",
@@ -140,8 +135,7 @@
               "RelativeToolTip": "Models\\ToDoItem.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T13:47:08.305Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T13:47:08.305Z"
             },
             {
               "$type": "Document",
@@ -153,8 +147,7 @@
               "RelativeToolTip": "Dtos\\ToDoItemDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T07:44:52.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T07:44:52.435Z"
             },
             {
               "$type": "Document",
@@ -166,8 +159,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T07:43:28.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T07:43:28.376Z"
             },
             {
               "$type": "Document",
@@ -179,8 +171,7 @@
               "RelativeToolTip": "Dtos\\UserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-06T07:45:05.655Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-06T07:45:05.655Z"
             }
           ]
         }
