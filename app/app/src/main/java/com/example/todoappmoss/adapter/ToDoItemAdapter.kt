@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todoappmoss.R
 import com.example.todoappmoss.data.model.ToDoItem
+import com.example.todolistapp.R
 
 class ToDoItemAdapter(private val toDoItems: List<ToDoItem>) :
     RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
