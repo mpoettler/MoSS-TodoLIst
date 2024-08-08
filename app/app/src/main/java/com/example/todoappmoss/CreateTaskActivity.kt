@@ -18,4 +18,5 @@ class CreateTaskActivity : AppCompatActivity() {
             insets
         }
     }
+
 }
