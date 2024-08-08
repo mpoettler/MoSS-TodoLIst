@@ -10,7 +10,6 @@
 - `feature/<beschreibung>`: Für die Entwicklung neuer Features.
 - `bugfix/<beschreibung>`: Für die Behebung von Fehlern.
 - `release/<version>`: Für die Vorbereitung einer neuen Version.
-- `hotfix/<beschreibung>`: Für dringende Fehlerbehebungen in der Produktion.
 
 ## Prozess für Pull Requests
 1. Erstelle einen Branch basierend auf `develop`.
