@@ -4,6 +4,7 @@ package com.example.todoappmoss.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoappmoss.data.model.ToDoItem
@@ -25,14 +26,14 @@ class ToDoItemAdapter(private val toDoItems: List<ToDoItem>) :
     override fun getItemCount() = toDoItems.size
 
     inner class ToDoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
-        private val tvDescription: TextView = itemView.findViewById(R.id.tvDescription)
-        private val tvDeadline: TextView = itemView.findViewById(R.id.tvDeadline)
+        val toDoTitle: TextView = itemView.findViewById(R.id.toDoTitle)
+        val itemText: TextView = itemView.findViewById(R.id.toDoDescription)
+        val itemCheckbox: CheckBox = itemView.findViewById(R.id.item_checkbox)
 
         fun bind(toDoItem: ToDoItem) {
-            tvTitle.text = toDoItem.title
-            tvDescription.text = toDoItem.description
-            tvDeadline.text = toDoItem.deadline
+            toDoTitle.text = toDoItem.title
+            itemText.text = toDoItem.description
+            itemCheckbox.text = toDoItem.deadline
         }
     }
 }

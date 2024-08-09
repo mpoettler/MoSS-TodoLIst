@@ -11,4 +11,19 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_taskboard_home">TaskboardHome</string>
     <string name="title_activity_add_task">AddTaskActivity</string>
+
+    <string-array name="alarm_options">
+        <item>Kein Alarm</item>
+        <item>10 Minuten vorher</item>
+        <item>30 Minuten vorher</item>
+        <item>1 Stunde vorher</item>
+        <item>1 Tag vorher</item>
+    </string-array>
+
+    <string-array name="repeat_options">
+        <item>Täglich</item>
+        <item>Wöchentlich</item>
+        <item>Monatlich</item>
+    </string-array>
+
 </resources>
