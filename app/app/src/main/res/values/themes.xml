@@ -5,4 +5,7 @@
 
     <style name="Theme.TodoAppMoss.Splash" parent="Theme.AppCompat.NoActionBar"> </style>
 
+    <style name="Theme.TodoAppMoss.Taskboard" parent="Theme.AppCompat.Light.NoActionBar"> </style>
+
+    <style name="Theme.TodoAppMoss.Login" parent="Theme.AppCompat.Light.NoActionBar"> </style>
 </resources>

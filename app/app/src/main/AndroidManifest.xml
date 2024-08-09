@@ -33,10 +33,12 @@
             android:exported="false" />
         <activity
             android:name="com.example.todoappmoss.TaskBoardActivity"
-            android:exported="false" />
+            android:theme="@style/Theme.TodoAppMoss.Taskboard"
+            android:exported="true" />
         <activity
             android:name="com.example.todoappmoss.ui.login.LoginActivity"
             android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.Login"
             android:label="@string/title_activity_login" />
 
     </application>

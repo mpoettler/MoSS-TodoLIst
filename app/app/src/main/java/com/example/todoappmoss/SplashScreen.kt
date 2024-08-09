@@ -17,7 +17,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent = Intent(this, LoginActivity::class.java)
+            val intent = Intent(this, TaskBoardActivity::class.java)
             startActivity(intent)
             finish() // Close the SplashActivity so it won't come back on back press
         }, 3000)
