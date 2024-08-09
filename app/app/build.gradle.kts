@@ -55,6 +55,9 @@ dependencies {
     implementation(libs.okhttp.v493)
     implementation(libs.gson.v2101)
 
+
+    implementation(libs.androidx.recyclerview)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
