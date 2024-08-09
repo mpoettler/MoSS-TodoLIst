@@ -1,6 +1,7 @@
 package com.example.todoappmoss.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -10,8 +11,10 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.todoappmoss.TaskBoardActivity
 import com.example.todolistapp.databinding.ActivityLoginBinding
 
 import com.example.todolistapp.R
@@ -26,6 +29,15 @@ class LoginActivity : AppCompatActivity() {
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val loginButton: Button = findViewById(R.id.login)
+        loginButton.setOnClickListener {
+
+            val intent = Intent(this, TaskBoardActivity::class.java)
+            startActivity(intent)
+            finish()
+        // Close the LoginActivity
+        }
 
         val username = binding.username
         val password = binding.password
