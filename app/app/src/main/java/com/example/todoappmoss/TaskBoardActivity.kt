@@ -3,16 +3,12 @@ package com.example.todoappmoss
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.todoappmoss.adapter.ToDoItem
 import com.example.todoappmoss.ui.taskboard.TaskBoardViewModel
 import com.example.todolistapp.R
-import okhttp3.internal.concurrent.Task
 
 class TaskBoardActivity : AppCompatActivity() {
 
@@ -32,6 +28,8 @@ class TaskBoardActivity : AppCompatActivity() {
 
         viewModel.loadTasks()
     }
+
+
 
     private fun setupNavigationButtons() {
         val homeButton: ImageButton = findViewById(R.id.navigation_home)
@@ -57,6 +55,6 @@ class TaskBoardActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateRecyclerView(tasks: List<Task>) {
+    private fun updateRecyclerView(tasks: List<ToDoItem>) {
     }
 }

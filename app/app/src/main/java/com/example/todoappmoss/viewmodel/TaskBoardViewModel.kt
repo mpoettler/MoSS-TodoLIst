@@ -4,21 +4,22 @@ package com.example.todoappmoss.ui.taskboard
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.todoappmoss.adapter.ToDoItem
 import okhttp3.internal.concurrent.Task
 
 class TaskBoardViewModel : ViewModel() {
 
-    private val _tasks = MutableLiveData<List<Task>>()
-    val tasks: LiveData<List<Task>> = _tasks
+    private val _tasks = MutableLiveData<List<ToDoItem>>()
+    val tasks: LiveData<List<ToDoItem>> = _tasks
+
+    private val taskList = mutableListOf<ToDoItem>()
 
     fun loadTasks() {
-        _tasks.value = listOf(/* Load tasks here */)
+        _tasks.value = taskList
     }
 
-    fun addTask(task: Task) {
-        val updatedTasks = _tasks.value.orEmpty().toMutableList()
-        updatedTasks.add(task)
-        _tasks.value = updatedTasks
+    fun addTask(task: ToDoItem) {
+        taskList.add(task)
+        _tasks.value = taskList
     }
-
 }
