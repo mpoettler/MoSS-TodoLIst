@@ -26,10 +26,12 @@
         </activity>
 
         <activity
-            android:name="com.example.todoappmoss.ClendarActivity"
+            android:name="com.example.todoappmoss.CalendarActivity"
+            android:theme="@style/Theme.TodoAppMoss.Calendar"
             android:exported="false" />
         <activity
             android:name="com.example.todoappmoss.CreateTaskActivity"
+            android:theme="@style/Theme.TodoAppMoss.CreateTask"
             android:exported="false" />
         <activity
             android:name="com.example.todoappmoss.TaskBoardActivity"

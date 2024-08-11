@@ -18,6 +18,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
+
+
         setContent {
             TodoAppMossTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

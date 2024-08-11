@@ -9,14 +9,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Kalender -->
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
-        <!-- Textfeld für neue Todo -->
         <EditText
             android:id="@+id/todoEditText"
             android:layout_width="match_parent"
@@ -28,7 +26,6 @@
             android:padding="8dp"
             android:background="@drawable/edit_text_background" />
 
-        <!-- Uhrzeit auswählen -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +70,6 @@
                 android:padding="8dp" />
         </LinearLayout>
 
-        <!-- Wiederholen Dropdown -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
