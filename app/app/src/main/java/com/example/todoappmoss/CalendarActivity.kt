@@ -40,7 +40,7 @@ class CalendarActivity : AppCompatActivity() {
     private fun setupNavigationButtons() {
         val homeButton: ImageView = findViewById(R.id.navigation_home)
         val addButton: ImageView  = findViewById(R.id.navigation_add)
-        val calendarButton: ImageView  = findViewById(R.id.navigation_calendar)
+        val calendarButton: ImageView     = findViewById(R.id.navigation_calendar)
 
         homeButton.setOnClickListener {
             // Go to TaskBoardActivity

@@ -18,5 +18,4 @@ class NetworkClient {
         }
     }
 
-    // Implementiere Methoden für POST, PUT, DELETE
 }
