@@ -17,6 +17,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
+
+
         setContent {
             TodoAppMossTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->

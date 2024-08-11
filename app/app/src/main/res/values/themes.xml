@@ -2,4 +2,14 @@
 <resources>
 
     <style name="Theme.TodoAppMoss" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.TodoAppMoss.Splash" parent="Theme.AppCompat.NoActionBar"> </style>
+
+    <style name="Theme.TodoAppMoss.Taskboard" parent="Theme.AppCompat.Light.NoActionBar"> </style>
+
+    <style name="Theme.TodoAppMoss.Login" parent="Theme.AppCompat.Light.NoActionBar"> </style>
+
+    <style name="Theme.TodoAppMoss.CreateTask" parent="Theme.AppCompat.Light.DarkActionBar"> </style>
+
+    <style name="Theme.TodoAppMoss.Calendar" parent="Theme.AppCompat.Light.DarkActionBar"> </style>
 </resources>
