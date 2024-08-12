@@ -1,63 +1,103 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ToDoListAppBackend.Dtos;
-using ToDoListAppBackend.Services;
+using Microsoft.EntityFrameworkCore;
+using ToDoListAppBackend.Data;
+using ToDoListAppBackend.Models;
 
 namespace ToDoListAppBackend.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class ToDoItemController : ControllerBase
+    [Route("api/[controller]")]
+    public class TasksController : ControllerBase
     {
-        private readonly IToDoItemService _toDoItemService;
+        private readonly AppDbContext _context;
 
-        public ToDoItemController(IToDoItemService toDoItemService)
+        public TasksController(AppDbContext context)
         {
-            _toDoItemService = toDoItemService;
+            _context = context;
         }
 
+        // GET: api/Tasks
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ToDoItemDto>>> GetToDoItems()
+        public async Task<ActionResult<IEnumerable<ToDoItem>>> GetTasks()
         {
-            var toDoItems = await _toDoItemService.GetToDoItemsAsync();
-            return Ok(toDoItems);
+            return await _context.Tasks.ToListAsync();
         }
 
+        // GET: api/Tasks/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ToDoItemDto>> GetToDoItem(int id)
+        public async Task<ActionResult<ToDoItem>> GetTask(int id)
         {
-            var toDoItem = await _toDoItemService.GetToDoItemByIdAsync(id);
-            if (toDoItem == null)
+            var taskItem = await _context.Tasks.FindAsync(id);
+
+            if (taskItem == null)
             {
                 return NotFound();
             }
-            return Ok(toDoItem);
+
+            return taskItem;
         }
 
+        // POST: api/Tasks
         [HttpPost]
-        public async Task<ActionResult<ToDoItemDto>> CreateToDoItem(ToDoItemDto toDoItemDto)
+        public async Task<ActionResult<ToDoItem>> PostTask(ToDoItem task)
         {
-            await _toDoItemService.CreateToDoItemAsync(toDoItemDto);
-            return CreatedAtAction(nameof(GetToDoItem), new { id = toDoItemDto.Id }, toDoItemDto);
+            _context.Tasks.Add(task);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetTask), new { id = task.Id }, task);
         }
 
+        // PUT: api/Tasks/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateToDoItem(int id, ToDoItemDto toDoItemDto)
+        public async Task<IActionResult> PutTask(int id, ToDoItem task)
         {
-            if (id != toDoItemDto.Id)
+            if (id != task.Id)
             {
                 return BadRequest();
             }
-            await _toDoItemService.UpdateToDoItemAsync(toDoItemDto);
+
+            _context.Entry(task).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TaskExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
             return NoContent();
         }
 
+        // DELETE: api/Tasks/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteToDoItem(int id)
+        public async Task<IActionResult> DeleteTask(int id)
         {
-            await _toDoItemService.DeleteToDoItemAsync(id);
+            var task = await _context.Tasks.FindAsync(id);
+            if (task == null)
+            {
+                return NotFound();
+            }
+
+            _context.Tasks.Remove(task);
+            await _context.SaveChangesAsync();
+
             return NoContent();
+        }
+
+        private bool TaskExists(int id)
+        {
+            return _context.Tasks.Any(e => e.Id == id);
         }
     }
 }

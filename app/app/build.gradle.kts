@@ -76,6 +76,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.protolite.well.known.types)
     implementation(libs.androidx.media3.common)
+    implementation(libs.androidx.room.common)
+    implementation(libs.androidx.room.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

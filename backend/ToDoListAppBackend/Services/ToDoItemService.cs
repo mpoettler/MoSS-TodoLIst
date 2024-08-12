@@ -27,8 +27,8 @@ namespace ToDoListAppBackend.Services
                     Id = toDoItem.Id,
                     Title = toDoItem.Title,
                     Description = toDoItem.Description,
-                    Deadline = toDoItem.Deadline,
-                    IsCompleted = toDoItem.IsCompleted
+                    Deadline = (DateTime)toDoItem.Deadline,
+                    isCompleted = toDoItem.IsCompleted
                 });
             }
 
@@ -49,8 +49,8 @@ namespace ToDoListAppBackend.Services
                 Id = toDoItem.Id,
                 Title = toDoItem.Title,
                 Description = toDoItem.Description,
-                Deadline = toDoItem.Deadline,
-                IsCompleted = toDoItem.IsCompleted
+                Deadline = (DateTime)toDoItem.Deadline,
+                isCompleted = toDoItem.IsCompleted
             };
         }
 
@@ -61,7 +61,7 @@ namespace ToDoListAppBackend.Services
                 Title = toDoItemDto.Title,
                 Description = toDoItemDto.Description,
                 Deadline = toDoItemDto.Deadline,
-                IsCompleted = toDoItemDto.IsCompleted
+                IsCompleted = toDoItemDto.isCompleted
             };
 
             await _toDoItemRepository.CreateToDoItemAsync(toDoItem);
@@ -75,7 +75,7 @@ namespace ToDoListAppBackend.Services
                 Title = toDoItemDto.Title,
                 Description = toDoItemDto.Description,
                 Deadline = toDoItemDto.Deadline,
-                IsCompleted = toDoItemDto.IsCompleted
+                IsCompleted = toDoItemDto.isCompleted
             };
 
             await _toDoItemRepository.UpdateToDoItemAsync(toDoItem);
