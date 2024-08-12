@@ -1,3 +1,4 @@
+import android.util.Log
 import com.example.todoappmoss.data.model.ToDoItem
 import com.google.common.reflect.TypeToken
 import okhttp3.OkHttpClient
@@ -9,7 +10,7 @@ class ApiClient {
 
     private val client = OkHttpClient()
     private val gson = Gson()
-    private val baseUrl = "https://10.0.2.2:7259/api/todoitems"
+    private val baseUrl = "http://10.0.2.2:5286/api/Tasks"
 
     @Throws(IOException::class)
     fun getTodoItems(): List<ToDoItem> {
@@ -17,10 +18,16 @@ class ApiClient {
             .url(baseUrl)
             .build()
 
-        client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+        Log.d("ApiClient", "Sending request to $baseUrl")
 
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) {
+                Log.e("ApiClient", "Request failed with status code: ${response.code}")
+                throw IOException("Unexpected code $response")
+
+            }
             val json = response.body?.string()
+            Log.d("ApiClient", "Received response: $json")
             val todoListType = object : TypeToken<List<ToDoItem>>() {}.type
 
             return gson.fromJson(json, todoListType)
@@ -34,8 +41,12 @@ class ApiClient {
             .url(url)
             .build()
 
+        Log.d("ApiClient", "Sending request to $url")
+
         client.newCall(request).execute().use { response ->
             if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+            Log.e("ApiClient", "Request failed with status code: ${response.code}")
 
             val json = response.body?.string()
             return gson.fromJson(json, ToDoItem::class.java)

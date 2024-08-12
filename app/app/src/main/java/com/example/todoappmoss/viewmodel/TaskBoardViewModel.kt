@@ -1,30 +1,45 @@
-// TaskBoardViewModel.kt
 package com.example.todoappmoss.ui.taskboard
 
+import ApiClient
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.todoappmoss.data.model.ToDoItem
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.IOException
 
 class TaskBoardViewModel : ViewModel() {
 
     private val _tasks = MutableLiveData<List<ToDoItem>>()
     val tasks: LiveData<List<ToDoItem>> = _tasks
 
-    private val taskList = mutableListOf<ToDoItem>()
+    private val apiClient = ApiClient()
 
     fun loadTasks() {
-
-        if (taskList.isEmpty()) {
-            taskList.add(ToDoItem(1, "Test Task 1", "Description 1", "2024-08-12", false))
-            taskList.add(ToDoItem(2, "Test Task 2", "Description 2", "2024-08-13", true))
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val items = apiClient.getTodoItems()
+                _tasks.postValue(items)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
-
-        _tasks.value = taskList
     }
 
-    fun addTask(task: ToDoItem) {
-        taskList.add(task)
-        _tasks.value = taskList
+    fun loadSingleTaskById(id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val item = apiClient.getTodoItemById(id)
+                item?.let {
+                    val currentList = _tasks.value.orEmpty().toMutableList()
+                    currentList.add(it)
+                    _tasks.postValue(currentList)
+                }
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
     }
 }

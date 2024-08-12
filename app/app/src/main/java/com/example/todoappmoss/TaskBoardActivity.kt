@@ -22,24 +22,22 @@ class TaskBoardActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_board)
 
-        setupNavigationButtons()
-
-        // RecyclerView setup
-        val recyclerView: RecyclerView = findViewById(R.id.recycler_view_todo_list)
+        val recyclerView = findViewById<RecyclerView>(R.id.recycler_view_todo_list)
         adapter = ToDoItemAdapter(emptyList())
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // ViewModel setup
         viewModel = ViewModelProvider(this).get(TaskBoardViewModel::class.java)
 
-        // Beobachte die tasks LiveData
         viewModel.tasks.observe(this, Observer { tasks ->
             updateRecyclerView(tasks)
         })
 
-        // Optional: Lade Aufgaben (falls zusätzliche Logik erforderlich ist)
         viewModel.loadTasks()
+
+        viewModel.loadSingleTaskById(1)
+
+        setupNavigationButtons()
     }
 
     private fun setupNavigationButtons() {
