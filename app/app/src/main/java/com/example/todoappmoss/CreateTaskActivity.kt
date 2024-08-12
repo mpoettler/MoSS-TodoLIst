@@ -1,6 +1,7 @@
 package com.example.todoappmoss
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
@@ -24,6 +25,7 @@ import androidx.media3.common.util.UnstableApi
 import com.example.todoappmoss.data.model.ToDoItem
 import com.example.todoappmoss.ui.createtask.CreateTaskViewModel
 import com.example.todolistapp.R
+import java.io.Serializable
 
 class CreateTaskActivity : AppCompatActivity() {
 
@@ -32,14 +34,11 @@ class CreateTaskActivity : AppCompatActivity() {
     private lateinit var selectedAlarm: String
     private lateinit var selectedRepeat: String
 
-
     private lateinit var viewModel: CreateTaskViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_task)
-
-
 
         viewModel = ViewModelProvider(this).get(CreateTaskViewModel::class.java)
 
@@ -93,58 +92,32 @@ class CreateTaskActivity : AppCompatActivity() {
                 isCompleted = false
             )
 
-            val resultIntent = Intent()
-            resultIntent.putExtra("new_task", newTask)
-            setResult(Activity.RESULT_OK, resultIntent)
-            finish()
+            AlertDialog.Builder(this)
+                .setTitle("Task Saved")
+                .setMessage("Title: ${newTask.title}\nDescription: ${newTask.description}\nDeadline: ${newTask.deadline}")
+                .setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+
+                    val resultIntent = Intent().apply {
+                        putExtra("new_task", newTask)
+                    }
+                    setResult(Activity.RESULT_OK, resultIntent)
+                    finish()
+                }
+                .show()
         }
 
 
-        // Observe changes to task name
-        viewModel.taskName.observe(this, Observer { name ->
-            // Update UI with task name
-        })
-
-        // Observe changes to due date
-        viewModel.dueDate.observe(this, Observer { date ->
-            // Update UI with due date
-        })
-
-        // Set listeners for inputs and buttons
-        findViewById<Button>(R.id.saveButton).setOnClickListener {
-            viewModel.saveTask()
+        val cancelButton: Button = findViewById(R.id.cancelButton)
+        cancelButton.setOnClickListener {
+            val intent = Intent(this, TaskBoardActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
     @OptIn(UnstableApi::class)
     private fun setupNavigationButtons() {
-
-        val cancelButton: Button = findViewById(R.id.saveButton)
-        val saveButton: Button  = findViewById(R.id.cancelButton)
-
-
-
-        cancelButton.setOnClickListener {
-            // Go to TaskBoardActivity
-            val intent = Intent(this, TaskBoardActivity::class.java)
-            Log.d("CreateTaskActivity", "Cancel button clicked") // Log-Ausgabe
-            startActivity(intent)
-            finish()
-        }
-
-        saveButton.setOnClickListener {
-
-            val intent = Intent(this, TaskBoardActivity::class.java)
-            startActivity(intent)
-
-            Toast.makeText(this, "Task saved: ${selectedDate.toString()}", Toast.LENGTH_SHORT).show()
-
-            finish()
-
-        }
-
-
+        // Other navigation buttons can be set up here if needed
     }
-
-
 }
