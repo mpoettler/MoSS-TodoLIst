@@ -1,31 +1,21 @@
 package com.example.todoappmoss
 
+import ApiClient
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.Button
-import android.widget.CalendarView
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.Spinner
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.annotation.OptIn
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.media3.common.util.Log
-import androidx.media3.common.util.UnstableApi
 import com.example.todoappmoss.data.model.ToDoItem
 import com.example.todoappmoss.ui.createtask.CreateTaskViewModel
 import com.example.todolistapp.R
-import java.io.Serializable
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import java.io.IOException
 
 class CreateTaskActivity : AppCompatActivity() {
 
@@ -81,6 +71,8 @@ class CreateTaskActivity : AppCompatActivity() {
         }
 
         val saveButton: Button = findViewById(R.id.saveButton)
+
+
         saveButton.setOnClickListener {
             val title = findViewById<EditText>(R.id.todoEditText).text.toString()
 
@@ -92,21 +84,33 @@ class CreateTaskActivity : AppCompatActivity() {
                 isCompleted = false
             )
 
-            AlertDialog.Builder(this)
-                .setTitle("Task Saved")
-                .setMessage("Title: ${newTask.title}\nDescription: ${newTask.description}\nDeadline: ${newTask.deadline}")
-                .setPositiveButton("OK") { dialog, _ ->
-                    dialog.dismiss()
+            try {
+                // Task zum Backend senden
+                val apiClient = ApiClient()
+                val success = apiClient.postTask(newTask)
 
-                    val resultIntent = Intent().apply {
-                        putExtra("new_task", newTask)
-                    }
-                    setResult(Activity.RESULT_OK, resultIntent)
-                    finish()
+                if (success) {
+                    AlertDialog.Builder(this)
+                        .setTitle("Task Saved")
+                        .setMessage("Title: ${newTask.title}\nDescription: ${newTask.description}\nDeadline: ${newTask.deadline}")
+                        .setPositiveButton("OK") { dialog, _ ->
+                            dialog.dismiss()
+
+                            val resultIntent = Intent().apply {
+                                putExtra("new_task", newTask)
+                            }
+                            setResult(Activity.RESULT_OK, resultIntent)
+                            finish()
+                        }
+                        .show()
+                } else {
+                    Toast.makeText(this, "Failed to save task", Toast.LENGTH_LONG).show()
                 }
-                .show()
-        }
 
+            } catch (e: IOException) {
+                Toast.makeText(this, "Failed to save task: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+        }
 
         val cancelButton: Button = findViewById(R.id.cancelButton)
         cancelButton.setOnClickListener {
@@ -116,8 +120,6 @@ class CreateTaskActivity : AppCompatActivity() {
         }
     }
 
-    @OptIn(UnstableApi::class)
     private fun setupNavigationButtons() {
-        // Other navigation buttons can be set up here if needed
     }
 }
