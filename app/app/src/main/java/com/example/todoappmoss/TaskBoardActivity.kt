@@ -37,13 +37,11 @@ class TaskBoardActivity : AppCompatActivity() {
         val calendarButton: ImageButton  = findViewById(R.id.navigation_calendar)
 
         homeButton.setOnClickListener {
-            // Go to TaskBoardActivity
             val intent = Intent(this, TaskBoardActivity::class.java)
             startActivity(intent)
         }
 
         addButton.setOnClickListener {
-            // Go to CreateTaskActivity
             val intent = Intent(this, CreateTaskActivity::class.java)
             startActivity(intent)
         }

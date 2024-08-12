@@ -1,9 +1,16 @@
-﻿namespace ToDoListAppBackend.Dtos
+﻿using ToDoListAppBackend.Models;
+
+namespace ToDoListAppBackend.Dtos
 {
     public class UserDto
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Username { get; set; }
         public string Email { get; set; }
+        public string PasswordHash { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+        // Navigation property
+        public ICollection<ToDoItem> ToDoItems { get; set; }
     }
 }
