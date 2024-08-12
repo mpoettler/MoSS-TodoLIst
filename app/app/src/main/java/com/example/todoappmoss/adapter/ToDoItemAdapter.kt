@@ -1,6 +1,5 @@
 package com.example.todoappmoss.adapter
 
-
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoappmoss.data.model.ToDoItem
 import com.example.todolistapp.R
 
-class ToDoItemAdapter(private val todoList: List<ToDoItem>) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
+class ToDoItemAdapter(private var todoList: List<ToDoItem>) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
@@ -20,7 +19,7 @@ class ToDoItemAdapter(private val todoList: List<ToDoItem>) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: ToDoItemViewHolder, position: Int) {
         val todoItem = todoList[position]
         holder.toDoTitle.text = todoItem.title.first().toString()
-        holder.itemText.text = todoItem.title
+        holder.toDoDescription.text = todoItem.description ?: ""
         holder.itemCheckbox.isChecked = todoItem.isCompleted
     }
 
@@ -28,14 +27,14 @@ class ToDoItemAdapter(private val todoList: List<ToDoItem>) : RecyclerView.Adapt
         return todoList.size
     }
 
+    fun updateData(newTodoList: List<ToDoItem>) {
+        todoList = newTodoList
+        notifyDataSetChanged()
+    }
+
     inner class ToDoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val toDoTitle: TextView = itemView.findViewById(R.id.toDoTitle)
-        val itemText: TextView = itemView.findViewById(R.id.todoEditText)
+        val toDoDescription: TextView = itemView.findViewById(R.id.toDoDescription)  // Verwende die korrekte ID hier
         val itemCheckbox: CheckBox = itemView.findViewById(R.id.item_checkbox)
     }
 }
-
-data class ToDoItem(val title: String, val isDone: Boolean)
-
-
-

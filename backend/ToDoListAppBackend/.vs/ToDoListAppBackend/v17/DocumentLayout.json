@@ -38,8 +38,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T16:52:24.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-12T16:52:24.069Z"
             },
             {
               "$type": "Document",
@@ -51,8 +50,7 @@
               "RelativeToolTip": "Dtos\\UserDto.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAuwA4AAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T16:48:46.221Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-12T16:48:46.221Z"
             },
             {
               "$type": "Document",
@@ -62,7 +60,7 @@
               "RelativeDocumentMoniker": "Controllers\\ToDoItemController.cs",
               "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\ToDoItemController.cs",
               "RelativeToolTip": "Controllers\\ToDoItemController.cs",
-              "ViewState": "AQIAAE4AAAAAAAAAAAAUwFgAAAAiAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T13:54:27.987Z",
               "EditorCaption": ""
@@ -77,8 +75,7 @@
               "RelativeToolTip": "Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T13:20:31.659Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-12T13:20:31.659Z"
             }
           ]
         }

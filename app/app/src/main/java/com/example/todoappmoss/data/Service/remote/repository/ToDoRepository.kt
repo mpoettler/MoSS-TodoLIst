@@ -1,6 +1,6 @@
 package com.example.todoappmoss.data.Service.remote.repository
 
-import com.example.todoappmoss.data.Service.remote.NetworkClient
+import com.example.todoappmoss.bloc.NetworkClient
 import com.example.todoappmoss.data.model.ToDoItem
 import com.google.gson.Gson
 

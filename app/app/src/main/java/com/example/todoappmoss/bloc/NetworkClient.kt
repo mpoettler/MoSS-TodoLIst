@@ -1,4 +1,4 @@
-package com.example.todoappmoss.data.Service.remote
+package com.example.todoappmoss.bloc
 
 import okhttp3.OkHttpClient
 import okhttp3.Request
@@ -17,5 +17,4 @@ class NetworkClient {
             return if (!response.isSuccessful) null else response.body?.string()
         }
     }
-
 }
