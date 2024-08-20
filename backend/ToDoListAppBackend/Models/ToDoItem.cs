@@ -17,5 +17,11 @@ namespace ToDoListAppBackend.Models
 
         [Column("created_at")]
         public DateTime CreatedAt { get; set; }
+
+        [Column("repeat_interval")]
+        public string? RepeatInterval { get; set; } 
+
+        [Column("reminder_time")]
+        public TimeSpan? ReminderTime { get; set; }  
     }
-}
+}   

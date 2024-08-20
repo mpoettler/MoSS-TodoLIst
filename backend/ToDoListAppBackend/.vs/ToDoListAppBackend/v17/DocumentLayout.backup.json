@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\controllers\\todoitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:controllers\\todoitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\controllers\\todoitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:controllers\\todoitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,24 +38,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ToDoItem.cs",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\ToDoItem.cs",
               "RelativeDocumentMoniker": "Models\\ToDoItem.cs",
               "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\ToDoItem.cs",
               "RelativeToolTip": "Models\\ToDoItem.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA9wAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-18T21:01:53.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "appsettings.Development.json",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\appsettings.Development.json",
               "RelativeDocumentMoniker": "appsettings.Development.json",
@@ -67,7 +67,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -79,7 +79,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -87,8 +87,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T16:52:24.069Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-12T16:52:24.069Z"
             },
             {
               "$type": "Document",
@@ -104,15 +103,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "ToDoItemController.cs",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\ToDoItemController.cs",
               "RelativeDocumentMoniker": "Controllers\\ToDoItemController.cs",
-              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\ToDoItemController.cs",
-              "RelativeToolTip": "Controllers\\ToDoItemController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAZAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\ToDoItemController.cs*",
+              "RelativeToolTip": "Controllers\\ToDoItemController.cs*",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABMAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T13:54:27.987Z"
+              "WhenOpened": "2024-08-12T13:54:27.987Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

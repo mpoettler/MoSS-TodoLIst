@@ -18,7 +18,15 @@ data class Task(
     val listId: Int,
 
     @SerializedName("created_at")
-    val createdAt: String
+    val createdAt: String,
+
+    @SerializedName("repeat_interval")
+    val repeatInterval: String? = null,
+
+    @SerializedName("reminder_time")
+    val reminderTime: String? = null
+
+
 ) : Serializable
 
 enum class Priority {

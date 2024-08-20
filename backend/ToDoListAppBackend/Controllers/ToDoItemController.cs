@@ -12,10 +12,12 @@ namespace ToDoListAppBackend.Controllers
     public class TasksController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<TasksController> _logger;
 
-        public TasksController(AppDbContext context)
+        public TasksController(AppDbContext context, ILogger<TasksController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/Tasks
@@ -43,6 +45,8 @@ namespace ToDoListAppBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<ToDoItem>> PostTask(ToDoItem task)
         {
+            _logger.LogInformation("ReminderTime: {ReminderTime}, RepeatInterval: {RepeatInterval}", task.ReminderTime, task.RepeatInterval);
+
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
 

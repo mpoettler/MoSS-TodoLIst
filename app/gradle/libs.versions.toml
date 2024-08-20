@@ -25,6 +25,7 @@ protoliteWellKnownTypes = "18.0.0"
 media3Common = "1.4.0"
 roomCommon = "2.6.1"
 roomKtx = "2.6.1"
+playServicesPal = "20.3.0"
 
 [libraries]
 androidx-recyclerview-v121 = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerviewVersion" }
@@ -60,6 +61,7 @@ protolite-well-known-types = { group = "com.google.firebase", name = "protolite-
 androidx-media3-common = { group = "androidx.media3", name = "media3-common", version.ref = "media3Common" }
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+play-services-pal = { group = "com.google.android.gms", name = "play-services-pal", version.ref = "playServicesPal" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

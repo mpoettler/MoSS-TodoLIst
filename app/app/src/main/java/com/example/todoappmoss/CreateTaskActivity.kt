@@ -22,7 +22,9 @@ import com.example.todoappmoss.ui.createtask.CreateTaskViewModel
 import com.example.todolistapp.R
 import java.io.IOException
 import java.time.LocalDateTime
+import java.time.LocalTime
 import java.time.format.DateTimeFormatter
+import java.time.format.DateTimeParseException
 import java.util.Locale
 
 class CreateTaskActivity : AppCompatActivity() {
@@ -95,7 +97,9 @@ class CreateTaskActivity : AppCompatActivity() {
                 deadline = parsedDeadline.toString(),
                 isCompleted = false,
                 listId = 1,
-                createdAt = LocalDateTime.now().toString()
+                createdAt = LocalDateTime.now().toString(),
+                repeatInterval = selectedRepeat.takeIf{it.isNotEmpty() },
+                reminderTime = TaskUtils.parseReminderTime(selectedAlarm)
             )
 
 
