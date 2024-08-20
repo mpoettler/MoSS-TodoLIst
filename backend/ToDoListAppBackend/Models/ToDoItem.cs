@@ -10,7 +10,7 @@ namespace ToDoListAppBackend.Models
         public DateTime? Deadline { get; set; }
 
         [Column("is_completed")]
-        public bool IsCompleted { get; set; }  // Achte auf die richtige Typzuordnung
+        public bool IsCompleted { get; set; } 
 
         [Column("list_id")]
         public int ListId { get; set; }

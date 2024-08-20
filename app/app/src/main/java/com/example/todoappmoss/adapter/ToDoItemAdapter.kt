@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todoappmoss.data.model.ToDoItem
+import com.example.todoappmoss.data.model.Task
 import com.example.todolistapp.R
 
-class ToDoItemAdapter(private var todoList: List<ToDoItem>) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
+class ToDoItemAdapter(private var todoList: List<Task>) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
@@ -27,7 +27,7 @@ class ToDoItemAdapter(private var todoList: List<ToDoItem>) : RecyclerView.Adapt
         return todoList.size
     }
 
-    fun updateData(newTodoList: List<ToDoItem>) {
+    fun updateData(newTodoList: List<Task>) {
         todoList = newTodoList
         notifyDataSetChanged()
     }

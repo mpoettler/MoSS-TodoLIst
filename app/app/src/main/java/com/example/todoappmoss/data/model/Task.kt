@@ -1,18 +1,24 @@
 package com.example.todoappmoss.data.model
 
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
-import java.time.LocalDateTime
 
 
-data class ToDoItem(
+data class Task(
     val id: Int,
     val title: String,
     val description: String? = null,
+
     val deadline: String,
+
+    @SerializedName("is_completed")
     val isCompleted: Boolean = false,
-    val priority: Priority = Priority.MEDIUM,
-    val categoryId: Int? = null,
-    val reminderTime: LocalDateTime? = null
+
+    @SerializedName("list_id")
+    val listId: Int,
+
+    @SerializedName("created_at")
+    val createdAt: String
 ) : Serializable
 
 enum class Priority {

@@ -8,7 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todoappmoss.data.model.ToDoItem
+import com.example.todoappmoss.data.model.Task
 import com.example.todoappmoss.adapter.ToDoItemAdapter
 import com.example.todoappmoss.ui.taskboard.TaskBoardViewModel
 import com.example.todolistapp.R
@@ -61,6 +61,6 @@ class TaskBoardActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateRecyclerView(tasks: List<ToDoItem>) {
+    private fun updateRecyclerView(tasks: List<Task>) {
         adapter.updateData(tasks)    }
 }

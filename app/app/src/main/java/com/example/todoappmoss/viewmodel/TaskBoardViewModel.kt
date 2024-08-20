@@ -5,15 +5,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.todoappmoss.data.model.ToDoItem
+import com.example.todoappmoss.data.model.Task
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 
 class TaskBoardViewModel : ViewModel() {
 
-    private val _tasks = MutableLiveData<List<ToDoItem>>()
-    val tasks: LiveData<List<ToDoItem>> = _tasks
+    private val _tasks = MutableLiveData<List<Task>>()
+    val tasks: LiveData<List<Task>> = _tasks
 
     private val apiClient = ApiClient()
 

@@ -70,7 +70,6 @@ C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\System.Composition.Hosting.dll
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\System.Composition.Runtime.dll
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\System.Composition.TypedParts.dll
-C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\System.Text.Json.dll
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
 C:\Users\mpoet\Desktop\MossProjekt\MoSS-TodoLIst\backend\ToDoListAppBackend\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll

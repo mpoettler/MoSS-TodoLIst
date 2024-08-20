@@ -1,21 +1,29 @@
 package com.example.todoappmoss
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import ApiClient
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.todoappmoss.data.model.ToDoItem
+import com.example.todoappmoss.data.model.Task
 import com.example.todoappmoss.ui.createtask.CreateTaskViewModel
 import com.example.todolistapp.R
-import okhttp3.OkHttpClient
-import okhttp3.Request
 import java.io.IOException
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.Locale
 
 class CreateTaskActivity : AppCompatActivity() {
 
@@ -26,6 +34,7 @@ class CreateTaskActivity : AppCompatActivity() {
 
     private lateinit var viewModel: CreateTaskViewModel
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_task)
@@ -76,49 +85,64 @@ class CreateTaskActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val title = findViewById<EditText>(R.id.todoEditText).text.toString()
 
-            val newTask = ToDoItem(
+            val formatter = DateTimeFormatter.ofPattern("d/M/yyyy HH:mm", Locale.getDefault())
+            val parsedDeadline = LocalDateTime.parse("$selectedDate $selectedTime", formatter)
+
+            val newTask = Task(
                 id = System.currentTimeMillis().toInt(),
                 title = title,
                 description = "Alarm: $selectedAlarm, Repeat: $selectedRepeat",
-                deadline = "$selectedDate $selectedTime",
-                isCompleted = false
+                deadline = parsedDeadline.toString(),
+                isCompleted = false,
+                listId = 1,
+                createdAt = LocalDateTime.now().toString()
             )
 
-            try {
-                // Task zum Backend senden
-                val apiClient = ApiClient()
-                val success = apiClient.postTask(newTask)
 
-                if (success) {
-                    AlertDialog.Builder(this)
-                        .setTitle("Task Saved")
-                        .setMessage("Title: ${newTask.title}\nDescription: ${newTask.description}\nDeadline: ${newTask.deadline}")
-                        .setPositiveButton("OK") { dialog, _ ->
-                            dialog.dismiss()
+            Log.d("CreateTaskActivity", "Save button clicked. Task: $newTask")
 
-                            val resultIntent = Intent().apply {
-                                putExtra("new_task", newTask)
+            CoroutineScope(Dispatchers.Main).launch {
+                try {
+                    val success = withContext(Dispatchers.IO) {
+                        Log.d("CreateTaskActivity", "Sending task to backend: $newTask")
+                        val apiClient = ApiClient()
+                        apiClient.postTask(newTask)
+                    }
+
+                    if (success) {
+                        Log.d("CreateTaskActivity", "Task successfully saved: $newTask")
+                        AlertDialog.Builder(this@CreateTaskActivity)
+                            .setTitle("Task Saved")
+                            .setMessage("Title: ${newTask.title}\nDescription: ${newTask.description}\nDeadline: ${newTask.deadline}")
+                            .setPositiveButton("OK") { dialog, _ ->
+                                dialog.dismiss()
+
+                                val resultIntent = Intent().apply {
+                                    putExtra("new_task", newTask)
+                                }
+                                setResult(Activity.RESULT_OK, resultIntent)
+                                finish()
                             }
-                            setResult(Activity.RESULT_OK, resultIntent)
-                            finish()
-                        }
-                        .show()
-                } else {
-                    Toast.makeText(this, "Failed to save task", Toast.LENGTH_LONG).show()
+                            .show()
+                    } else {
+                        Log.e("CreateTaskActivity", "Failed to save task: $newTask")
+                        Toast.makeText(
+                            this@CreateTaskActivity,
+                            "Failed to save task",
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+
+                } catch (e: IOException) {
+                    Log.e("CreateTaskActivity", "Error saving task: ${e.message}", e)
+                    Toast.makeText(
+                        this@CreateTaskActivity,
+                        "Failed to save task: ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
-
-            } catch (e: IOException) {
-                Toast.makeText(this, "Failed to save task: ${e.message}", Toast.LENGTH_LONG).show()
             }
-        }
-
-        val cancelButton: Button = findViewById(R.id.cancelButton)
-        cancelButton.setOnClickListener {
-            val intent = Intent(this, TaskBoardActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
+        }}
 
     private fun setupNavigationButtons() {
     }
