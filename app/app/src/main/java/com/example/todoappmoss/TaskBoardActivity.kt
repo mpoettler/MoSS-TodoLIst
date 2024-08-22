@@ -23,7 +23,7 @@ class TaskBoardActivity : AppCompatActivity() {
         setContentView(R.layout.activity_task_board)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view_todo_list)
-        adapter = ToDoItemAdapter(emptyList())
+        adapter = ToDoItemAdapter(emptyList(), ::onTaskClicked)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -35,9 +35,15 @@ class TaskBoardActivity : AppCompatActivity() {
 
         viewModel.loadTasks()
 
-        viewModel.loadSingleTaskById(1)
 
         setupNavigationButtons()
+    }
+
+    private fun onTaskClicked(task: Task) {
+        val intent = Intent(this, EditTaskActivity::class.java).apply {
+            putExtra("task", task)  // Passing the task to EditTaskActivity
+        }
+        startActivity(intent)
     }
 
     private fun setupNavigationButtons() {

@@ -6,10 +6,10 @@ import java.io.Serializable
 
 data class Task(
     val id: Int,
-    val title: String,
-    val description: String? = null,
+    var title: String,
+    var description: String? = null,
 
-    val deadline: String,
+    var deadline: String,
 
     @SerializedName("is_completed")
     val isCompleted: Boolean = false,
@@ -21,10 +21,10 @@ data class Task(
     val createdAt: String,
 
     @SerializedName("repeat_interval")
-    val repeatInterval: String? = null,
+    var repeatInterval: String? = null,
 
     @SerializedName("reminder_time")
-    val reminderTime: String? = null
+    var reminderTime: String? = null
 
 
 ) : Serializable

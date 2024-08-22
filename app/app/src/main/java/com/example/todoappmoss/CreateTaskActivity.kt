@@ -103,6 +103,9 @@ class CreateTaskActivity : AppCompatActivity() {
             )
 
 
+            Log.d("CreateTaskActivity", "Reminder Time: ${newTask.reminderTime}")
+            Log.d("CreateTaskActivity", "Repeat Interval: ${newTask.repeatInterval}")
+
             Log.d("CreateTaskActivity", "Save button clicked. Task: $newTask")
 
             CoroutineScope(Dispatchers.Main).launch {

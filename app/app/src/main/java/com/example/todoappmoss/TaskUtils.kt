@@ -7,34 +7,14 @@ import java.util.Locale
 
 object TaskUtils {
 
-    fun parseReminderTime(reminder: String?): String? {
-        return reminder?.let {
-            when {
-                it.contains("Minute") -> {
-                    val minutesBefore = it.split(" ")[0].toInt()
-                    formatTimeFromNow(minutesBefore * 60)
-                }
-                it.contains("Stunde") -> {
-                    val hoursBefore = it.split(" ")[0].toInt()
-                    formatTimeFromNow(hoursBefore * 60 * 60)
-                }
-                it.contains("Tag") -> {
-                    val daysBefore = it.split(" ")[0].toInt()
-                    formatTimeFromNow(daysBefore * 24 * 60 * 60)
-                }
-                else -> {
-                    try {
-                        val parsedTime = LocalTime.parse(it, DateTimeFormatter.ofPattern("HH:mm"))
-                        parsedTime.toString()  // Konvertiere ins erwartete Format
-                    } catch (e: DateTimeParseException) {
-                        Log.e("TaskUtils", "Invalid time format for reminder: $it", e)
-                        null
-                    }
-                }
-            }
+    fun parseReminderTime(reminder: String): String? {
+        return when (reminder) {
+            "30 Minuten vorher" -> "00:30:00"
+            "1 Stunde vorher" -> "01:00:00"
+            "1 Tag vorher" -> "24:00:00"
+            else -> null
         }
     }
-
     private fun formatTimeFromNow(seconds: Int): String {
         val now = LocalDateTime.now()
         val reminderTime = now.plusSeconds(seconds.toLong())

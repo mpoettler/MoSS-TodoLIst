@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoappmoss.data.model.Task
 import com.example.todolistapp.R
 
-class ToDoItemAdapter(private var todoList: List<Task>) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
+class ToDoItemAdapter(
+    private var todoList: List<Task>, private val onItemClick: (Task) -> Unit) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
@@ -21,7 +23,12 @@ class ToDoItemAdapter(private var todoList: List<Task>) : RecyclerView.Adapter<T
         holder.toDoTitle.text = todoItem.title.first().toString()
         holder.toDoDescription.text = todoItem.description ?: ""
         holder.itemCheckbox.isChecked = todoItem.isCompleted
+
+        holder.itemView.setOnClickListener {
+            onItemClick(todoItem)
+        }
     }
+
 
     override fun getItemCount(): Int {
         return todoList.size
@@ -34,7 +41,8 @@ class ToDoItemAdapter(private var todoList: List<Task>) : RecyclerView.Adapter<T
 
     inner class ToDoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val toDoTitle: TextView = itemView.findViewById(R.id.toDoTitle)
-        val toDoDescription: TextView = itemView.findViewById(R.id.toDoDescription)  // Verwende die korrekte ID hier
+        val toDoDescription: TextView = itemView.findViewById(R.id.toDoDescription)
         val itemCheckbox: CheckBox = itemView.findViewById(R.id.item_checkbox)
+
     }
 }

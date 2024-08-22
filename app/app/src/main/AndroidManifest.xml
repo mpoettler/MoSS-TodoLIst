@@ -10,12 +10,15 @@
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TodoAppMoss"
-        android:networkSecurityConfig="@xml/network_security_config"
         tools:targetApi="31">
-
+        <activity
+            android:name="com.example.todoappmoss.EditTaskActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.EditTask"/>
         <activity
             android:name="com.example.todoappmoss.SplashActivity"
             android:exported="true"
@@ -27,25 +30,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.example.todoappmoss.CalendarActivity"
-            android:theme="@style/Theme.TodoAppMoss.Calendar"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.Calendar" />
         <activity
             android:name="com.example.todoappmoss.CreateTaskActivity"
-            android:theme="@style/Theme.TodoAppMoss.CreateTask"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.CreateTask" />
         <activity
             android:name="com.example.todoappmoss.TaskBoardActivity"
-            android:theme="@style/Theme.TodoAppMoss.Taskboard"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/Theme.TodoAppMoss.Taskboard" />
         <activity
             android:name="com.example.todoappmoss.ui.login.LoginActivity"
             android:exported="false"
-            android:theme="@style/Theme.TodoAppMoss.Login"
-            android:label="@string/title_activity_login" />
-
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.TodoAppMoss.Login" />
     </application>
 
 </manifest>

@@ -47,6 +47,10 @@ namespace ToDoListAppBackend.Controllers
         {
             _logger.LogInformation("ReminderTime: {ReminderTime}, RepeatInterval: {RepeatInterval}", task.ReminderTime, task.RepeatInterval);
 
+            _logger.LogInformation("Received JSON: {@task}", task);
+
+            Console.WriteLine($"{task.ReminderTime} und ${task.RepeatInterval}");
+
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
 
