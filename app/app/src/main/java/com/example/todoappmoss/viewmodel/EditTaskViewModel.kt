@@ -22,7 +22,7 @@ class EditTaskViewModel : ViewModel() {
         return withContext(Dispatchers.IO) {
             try {
                 val apiClient = ApiClient()
-                //apiClient.updateTask(updatedTask.id, updatedTask)
+                apiClient.updateTask(updatedTask.id, updatedTask)
                 true
             } catch (e: IOException) {
                 false
@@ -34,7 +34,7 @@ class EditTaskViewModel : ViewModel() {
         return withContext(Dispatchers.IO) {
             try {
                 val apiClient = ApiClient()
-                //apiClient.deleteTask(taskId)
+                apiClient.deleteTask(taskId)
                 true
             } catch (e: IOException) {
                 false

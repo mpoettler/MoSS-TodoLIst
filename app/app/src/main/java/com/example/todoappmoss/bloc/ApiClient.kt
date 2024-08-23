@@ -57,7 +57,41 @@ class ApiClient {
     }
 
 
+    @Throws(IOException::class)
+    fun updateTask(id: Int, updatedTask: Task): Boolean {
+        val jsonTask = gson.toJson(updatedTask)
+        val mediaType = "application/json; charset=utf-8".toMediaTypeOrNull()
+        val requestBody = jsonTask.toRequestBody(mediaType)
 
+        val request = Request.Builder()
+            .url("$baseUrl/$id")
+            .put(requestBody)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) {
+                Log.e("ApiClient", "Failed to update task. Response code: ${response.code}, message: ${response.message}")
+                throw IOException("Unexpected code $response")
+            }
+            return response.isSuccessful
+        }
+    }
+
+    @Throws(IOException::class)
+    fun deleteTask(id: Int): Boolean {
+        val request = Request.Builder()
+            .url("$baseUrl/$id")
+            .delete()
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) {
+                Log.e("ApiClient", "Failed to delete task. Response code: ${response.code}, message: ${response.message}")
+                throw IOException("Unexpected code $response")
+            }
+            return response.isSuccessful
+        }
+    }
 
     @Throws(IOException::class)
     fun postTask(newTask: Task): Boolean {

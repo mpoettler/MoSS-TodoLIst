@@ -65,7 +65,15 @@ class EditTaskActivity : AppCompatActivity() {
         findViewById<Button>(R.id.cancelButton).setOnClickListener {
             finish()
         }
+
+
+
     }
+
+
+
+
+
 
     private fun updateTask(task: Task) {
         CoroutineScope(Dispatchers.Main).launch {
