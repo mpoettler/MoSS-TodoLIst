@@ -56,6 +56,21 @@ class ApiClient {
         }
     }
 
+    @Throws(IOException::class)
+    fun getTasksForDate(date: String): List<Task> {
+        val url = "$baseUrl?date=$date"
+        val request = Request.Builder()
+            .url(url)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+            val json = response.body?.string()
+            val taskListType = object : TypeToken<List<Task>>() {}.type
+            return gson.fromJson(json, taskListType)
+        }
+    }
 
     @Throws(IOException::class)
     fun updateTask(id: Int, updatedTask: Task): Boolean {
