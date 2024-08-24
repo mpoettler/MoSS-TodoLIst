@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.todoappmoss.data.model.Task
 import com.example.todoappmoss.ui.createtask.CreateTaskViewModel
 import com.example.todolistapp.R
+import com.google.gson.Gson
 import java.io.IOException
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -102,6 +103,9 @@ class CreateTaskActivity : AppCompatActivity() {
                 reminderTime = TaskUtils.parseReminderTime(selectedAlarm)
             )
 
+
+            val json = Gson().toJson(newTask)
+            Log.d("Serialized Task", json)
 
             Log.d("CreateTaskActivity", "Reminder Time: ${newTask.reminderTime}")
             Log.d("CreateTaskActivity", "Repeat Interval: ${newTask.repeatInterval}")

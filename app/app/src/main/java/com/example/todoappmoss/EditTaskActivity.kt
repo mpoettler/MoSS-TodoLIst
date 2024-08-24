@@ -27,25 +27,21 @@ class EditTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_task)
 
-        // Retrieve the Task object from the intent
         val task = intent.getSerializableExtra("task") as Task
         viewModel.loadTask(task)
 
-        // Initialize UI components
         val titleEditText = findViewById<EditText>(R.id.editTaskTitle)
         val descriptionEditText = findViewById<EditText>(R.id.editTaskDescription)
         val deadlineTextView = findViewById<TextView>(R.id.editTaskDeadline)
         val reminderTimeTextView = findViewById<TextView>(R.id.editTaskReminderTime)
         val repeatIntervalTextView = findViewById<TextView>(R.id.editTaskRepeatInterval)
 
-        // Set initial values
         titleEditText.setText(task.title)
         descriptionEditText.setText(task.description)
         deadlineTextView.text = task.deadline
         reminderTimeTextView.text = task.reminderTime
         repeatIntervalTextView.text = task.repeatInterval
 
-        // Handle save button click
         findViewById<Button>(R.id.saveButton).setOnClickListener {
             task.title = titleEditText.text.toString()
             task.description = descriptionEditText.text.toString()
@@ -56,12 +52,10 @@ class EditTaskActivity : AppCompatActivity() {
             updateTask(task)
         }
 
-        // Handle delete button click
         findViewById<Button>(R.id.deleteButton).setOnClickListener {
             deleteTask(task.id)
         }
 
-        // Handle cancel button click
         findViewById<Button>(R.id.cancelButton).setOnClickListener {
             finish()
         }

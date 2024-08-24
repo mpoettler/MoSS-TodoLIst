@@ -1,5 +1,8 @@
 package com.example.todoappmoss
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
@@ -10,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todoappmoss.data.model.Task
 import com.example.todoappmoss.adapter.ToDoItemAdapter
+import com.example.todoappmoss.bloc.NotificationReceiver
 import com.example.todoappmoss.ui.taskboard.TaskBoardViewModel
 import com.example.todolistapp.R
 
@@ -69,4 +73,27 @@ class TaskBoardActivity : AppCompatActivity() {
 
     private fun updateRecyclerView(tasks: List<Task>) {
         adapter.updateData(tasks)    }
+
+
+    private fun scheduleNotification(context: Context, task: Task, triggerTime: Long) {
+        val intent = Intent(context, NotificationReceiver::class.java).apply {
+            putExtra("task_title", task.title)
+            putExtra("task_description", task.description)
+        }
+
+        val pendingIntent = PendingIntent.getBroadcast(
+            context,
+            task.id,
+            intent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+        alarmManager.setExact(
+            AlarmManager.RTC_WAKEUP,
+            triggerTime,
+            pendingIntent
+        )
+    }
+
 }

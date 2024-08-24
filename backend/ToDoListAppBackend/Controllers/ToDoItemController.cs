@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -48,6 +49,9 @@ namespace ToDoListAppBackend.Controllers
             _logger.LogInformation("ReminderTime: {ReminderTime}, RepeatInterval: {RepeatInterval}", task.ReminderTime, task.RepeatInterval);
 
             _logger.LogInformation("Received JSON: {@task}", task);
+
+            var jsonReceived = JsonSerializer.Serialize(task);
+            _logger.LogInformation("Received JSON: {jsonReceived}", jsonReceived);
 
             Console.WriteLine($"{task.ReminderTime} und ${task.RepeatInterval}");
 

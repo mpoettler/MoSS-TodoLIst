@@ -28,35 +28,31 @@
 
             viewModel = ViewModelProvider(this).get(CalendarViewModel::class.java)
 
-            // Initialize RecyclerView
             val recyclerView = findViewById<RecyclerView>(R.id.taskRecyclerView)
             adapter = ToDoItemAdapter(emptyList(), ::onTaskClicked)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(this)
 
-            // Observe the selected date
             viewModel.selectedDate.observe(this, Observer { date ->
-                viewModel.loadTasksForDate(date) // Load tasks for the selected date
+                viewModel.loadTasksForDate(date)
             })
 
-            // Observe the tasks for the selected date
             viewModel.tasksForDate.observe(this, Observer { tasks ->
                 updateTasksRecyclerView(tasks)
             })
 
-            // CalendarView interaction
             val calendarView: CalendarView = findViewById(R.id.calendarView)
             calendarView.setOnDateChangeListener { _, year, month, dayOfMonth ->
                 val selectedDate = Calendar.getInstance().apply {
                     set(year, month, dayOfMonth)
                 }.time
-                viewModel.selectDate(selectedDate) // Set the selected date in the ViewModel
+                viewModel.selectDate(selectedDate)
             }
         }
 
         private fun onTaskClicked(task: Task) {
             val intent = Intent(this, EditTaskActivity::class.java).apply {
-                putExtra("task", task)  // Passing the task to EditTaskActivity
+                putExtra("task", task)
             }
             startActivity(intent)
         }

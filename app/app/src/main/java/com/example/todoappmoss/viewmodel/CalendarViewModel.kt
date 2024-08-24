@@ -1,4 +1,3 @@
-// CalendarViewModel.kt
 package com.example.todoappmoss.ui.calendar
 
 import ApiClient
@@ -35,7 +34,6 @@ class CalendarViewModel : ViewModel() {
             try {
                 val allTasks = apiClient.getTodoItems()
 
-                // Formatieren der Deadlines und Vergleich mit dem ausgewählten Datum
                 val dateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
                 val formattedSelectedDate = dateFormatter.format(date)
 
