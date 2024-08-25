@@ -1,4 +1,5 @@
 ﻿    using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ToDoListAppBackend.Models
 {
@@ -19,9 +20,11 @@ namespace ToDoListAppBackend.Models
         public DateTime CreatedAt { get; set; }
 
         [Column("repeat_interval")]
+        [JsonPropertyName("repeat_interval")]
         public string? RepeatInterval { get; set; } 
 
         [Column("reminder_time")]
+        [JsonPropertyName("reminder_time")]
         public TimeSpan? ReminderTime { get; set; }  
     }
 }   
