@@ -58,26 +58,36 @@ object TaskUtils {
         return LocalDateTime.parse("$date $time", formatter).toString()
     }
 
-
+    private fun parseDuration(duration: String): Int? {
+        val parts = duration.split(":").map { it.toIntOrNull() }
+        return if (parts.size == 3 && parts[0] != null && parts[1] != null && parts[2] != null) {
+            (parts[0]!! * 3600) + (parts[1]!! * 60) + parts[2]!!
+        } else {
+            null
+        }
+    }
 
     fun scheduleAllNotifications(context: Context, tasks: List<Task>) {
         val dateFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
 
         for (task in tasks) {
-            task.reminderTime?.let {
+            task.reminderTime?.let { reminderTime ->
                 try {
                     val deadlineDate: Date? = dateFormatter.parse(task.deadline)
                     if (deadlineDate != null) {
                         val calendar = Calendar.getInstance()
                         calendar.time = deadlineDate
 
-
-
-                            calendar.add(Calendar.HOUR, -1)
-
-                        scheduleNotification(context, task, calendar.timeInMillis)
+                        val reminderDuration = parseDuration(reminderTime)
+                        if (reminderDuration != null) {
+                            calendar.add(Calendar.SECOND, -reminderDuration)
+                            scheduleNotification(context, task, calendar.timeInMillis)
+                        }
+                        else {
+                            Log.e("NotificationScheduler", "Reminderduration is null: ${reminderDuration}")
+                        }
                     } else {
-
+                        Log.e("NotificationScheduler", "deadlineDate is null: ${task.deadline}")
                     }
                 } catch (e: Exception) {
                     e.printStackTrace()

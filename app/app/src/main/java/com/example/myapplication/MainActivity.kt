@@ -44,7 +44,6 @@ fun createNotificationChannel(context: Context) {
             description = descriptionText
         }
 
-        // Registrieren des Channels im System
         val notificationManager: NotificationManager =
             context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.createNotificationChannel(channel)
