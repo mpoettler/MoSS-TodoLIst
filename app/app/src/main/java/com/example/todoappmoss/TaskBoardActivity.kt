@@ -22,6 +22,8 @@ class TaskBoardActivity : AppCompatActivity() {
     private lateinit var viewModel: TaskBoardViewModel
     private lateinit var adapter: ToDoItemAdapter
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_board)
@@ -33,7 +35,8 @@ class TaskBoardActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(TaskBoardViewModel::class.java)
 
-        viewModel.tasks.observe(this, Observer { tasks ->
+
+        viewModel.filteredTasks.observe(this, Observer { tasks ->
             updateRecyclerView(tasks)
         })
 
