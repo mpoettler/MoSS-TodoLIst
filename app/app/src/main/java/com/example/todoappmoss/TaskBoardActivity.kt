@@ -22,19 +22,16 @@ class TaskBoardActivity : AppCompatActivity() {
     private lateinit var viewModel: TaskBoardViewModel
     private lateinit var adapter: ToDoItemAdapter
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task_board)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recycler_view_todo_list)
-        adapter = ToDoItemAdapter(emptyList(), ::onTaskClicked)
+        adapter = ToDoItemAdapter(emptyList(), ::onTaskClicked, ::onCheckboxChecked)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         viewModel = ViewModelProvider(this).get(TaskBoardViewModel::class.java)
-
 
         viewModel.filteredTasks.observe(this, Observer { tasks ->
             updateRecyclerView(tasks)
@@ -42,15 +39,19 @@ class TaskBoardActivity : AppCompatActivity() {
 
         viewModel.loadTasks()
 
-
         setupNavigationButtons()
     }
 
     private fun onTaskClicked(task: Task) {
         val intent = Intent(this, EditTaskActivity::class.java).apply {
-            putExtra("task", task)  // Passing the task to EditTaskActivity
+            putExtra("task", task)
         }
         startActivity(intent)
+    }
+
+    private fun onCheckboxChecked(task: Task, isChecked: Boolean) {
+        task.isCompleted = isChecked
+        viewModel.updateTask(task)
     }
 
     private fun setupNavigationButtons() {
@@ -75,8 +76,8 @@ class TaskBoardActivity : AppCompatActivity() {
     }
 
     private fun updateRecyclerView(tasks: List<Task>) {
-        adapter.updateData(tasks)    }
-
+        adapter.updateData(tasks)
+    }
 
     private fun scheduleNotification(context: Context, task: Task, triggerTime: Long) {
         val intent = Intent(context, NotificationReceiver::class.java).apply {
@@ -98,5 +99,4 @@ class TaskBoardActivity : AppCompatActivity() {
             pendingIntent
         )
     }
-
 }

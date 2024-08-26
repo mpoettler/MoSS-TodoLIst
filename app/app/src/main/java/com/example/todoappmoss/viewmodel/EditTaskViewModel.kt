@@ -18,11 +18,13 @@ class EditTaskViewModel : ViewModel() {
         this.task = task
     }
 
+
+
     suspend fun updateTask(updatedTask: Task): Boolean {
         return withContext(Dispatchers.IO) {
             try {
                 val apiClient = ApiClient()
-                apiClient.updateTask(updatedTask.id, updatedTask)
+                apiClient.updateTask(updatedTask)
                 true
             } catch (e: IOException) {
                 false

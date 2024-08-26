@@ -29,7 +29,7 @@
             viewModel = ViewModelProvider(this).get(CalendarViewModel::class.java)
 
             val recyclerView = findViewById<RecyclerView>(R.id.taskRecyclerView)
-            adapter = ToDoItemAdapter(emptyList(), ::onTaskClicked)
+            adapter = ToDoItemAdapter(emptyList(), ::onTaskClicked, ::onCheckboxChecked)
             recyclerView.adapter = adapter
             recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -80,5 +80,9 @@
 
         private fun updateTasksRecyclerView(tasks: List<Task>) {
             adapter.updateData(tasks)
+        }
+
+        private fun onCheckboxChecked(task: Task, isChecked: Boolean) {
+            viewModel.updateTaskCompletion(task, isChecked)
         }
     }

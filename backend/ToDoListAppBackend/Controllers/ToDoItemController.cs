@@ -47,7 +47,7 @@ namespace ToDoListAppBackend.Controllers
         public async Task<ActionResult<ToDoItem>> PostTask(ToDoItem task)
         {
             _logger.LogInformation("ReminderTime: {ReminderTime}, RepeatInterval: {RepeatInterval}", task.ReminderTime, task.RepeatInterval);
-
+    
             _logger.LogInformation("Received JSON: {@task}", task);
 
             var jsonReceived = JsonSerializer.Serialize(task);

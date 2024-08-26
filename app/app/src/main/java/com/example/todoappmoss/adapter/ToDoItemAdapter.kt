@@ -10,8 +10,10 @@ import com.example.todoappmoss.data.model.Task
 import com.example.todolistapp.R
 
 class ToDoItemAdapter(
-    private var todoList: List<Task>, private val onItemClick: (Task) -> Unit) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
-
+    private var todoList: List<Task>,
+    private val onItemClick: (Task) -> Unit,
+    private val onCheckboxChecked: (Task, Boolean) -> Unit
+) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
@@ -20,15 +22,19 @@ class ToDoItemAdapter(
 
     override fun onBindViewHolder(holder: ToDoItemViewHolder, position: Int) {
         val todoItem = todoList[position]
-        holder.toDoTitle.text = todoItem.title.first().toString()
+        holder.toDoTitle.text = todoItem.title
         holder.toDoDescription.text = todoItem.description ?: ""
+
         holder.itemCheckbox.isChecked = todoItem.isCompleted
+
+        holder.itemCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            onCheckboxChecked(todoItem, isChecked)
+        }
 
         holder.itemView.setOnClickListener {
             onItemClick(todoItem)
         }
     }
-
 
     override fun getItemCount(): Int {
         return todoList.size
@@ -43,6 +49,6 @@ class ToDoItemAdapter(
         val toDoTitle: TextView = itemView.findViewById(R.id.toDoTitle)
         val toDoDescription: TextView = itemView.findViewById(R.id.toDoDescription)
         val itemCheckbox: CheckBox = itemView.findViewById(R.id.item_checkbox)
-
     }
 }
+

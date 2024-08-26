@@ -12,7 +12,7 @@ data class Task(
     var deadline: String,
 
     @SerializedName("is_completed")
-    val isCompleted: Boolean = false,
+    var isCompleted: Boolean = false,
 
     @SerializedName("list_id")
     val listId: Int,

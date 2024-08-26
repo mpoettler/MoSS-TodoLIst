@@ -42,6 +42,37 @@ class TaskBoardViewModel : ViewModel() {
         }
     }
 
+    fun updateTask(task: Task) {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val success = apiClient.updateTask(task)
+                if (success) {
+                    val updatedList = _tasks.value?.map {
+                        if (it.id == task.id) task else it
+                    } ?: emptyList()
+                    _tasks.postValue(updatedList)
+                }
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    fun onCheckboxChecked(task: Task, isChecked: Boolean) {
+        val updatedTask = task.copy(isCompleted = isChecked)
+
+        viewModelScope.launch(Dispatchers.IO) {
+            val success = apiClient.updateTask(updatedTask)
+            if (success) {
+                val currentList = _tasks.value.orEmpty()
+                val updatedList = currentList.map { if (it.id == updatedTask.id) updatedTask else it }
+
+                _tasks.postValue(updatedList)
+            }
+        }
+    }
+
+
     private fun filterTasksForToday(taskList: List<Task>?) {
         val today = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())

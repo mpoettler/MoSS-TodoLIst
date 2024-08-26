@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.todoappmoss.data.model.Task
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -28,6 +29,22 @@ class CalendarViewModel : ViewModel() {
         _selectedDate.value = date
         loadTasksForDate(date)
     }
+
+    fun updateTaskCompletion(task: Task, isCompleted: Boolean) {
+        viewModelScope.launch(Dispatchers.IO) {
+            task.isCompleted = isCompleted // Set the completion status
+            val success = apiClient.updateTask(task)
+            if (success) {
+                val updatedList = _tasks.value?.map {
+                    if (it.id == task.id) task else it
+                }
+                _tasks.postValue(updatedList ?: listOf()) // Update the list in LiveData
+            }
+        }
+    }
+
+
+
 
     fun loadTasksForDate(date: Date) {
         CoroutineScope(Dispatchers.IO).launch {
