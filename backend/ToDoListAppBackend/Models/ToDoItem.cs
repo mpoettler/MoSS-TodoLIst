@@ -16,12 +16,8 @@ namespace ToDoListAppBackend.Models
         [Column("list_id")]
         public int ListId { get; set; }
 
-        [Column("created_at")]
-        public DateTime CreatedAt { get; set; }
-
-        [Column("repeat_interval")]
-        [JsonPropertyName("repeat_interval")]
-        public string? RepeatInterval { get; set; } 
+        [Column("Priority")]
+        public string? Priority { get; set; } 
 
         [Column("reminder_time")]
         [JsonPropertyName("reminder_time")]

@@ -1,5 +1,6 @@
 package com.example.todoappmoss.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,12 +23,16 @@ class ToDoItemAdapter(
 
     override fun onBindViewHolder(holder: ToDoItemViewHolder, position: Int) {
         val todoItem = todoList[position]
+
         holder.toDoTitle.text = todoItem.title
         holder.toDoDescription.text = todoItem.description ?: ""
 
         holder.itemCheckbox.isChecked = todoItem.isCompleted
 
+
+        Log.d("ToDoItemAdapter", "Setting OnCheckedChangeListener for task: ${todoItem.id}")
         holder.itemCheckbox.setOnCheckedChangeListener { _, isChecked ->
+            Log.d("ToDoItemAdapter", "Checkbox clicked: $isChecked for task: ${todoItem.id}")
             onCheckboxChecked(todoItem, isChecked)
         }
 

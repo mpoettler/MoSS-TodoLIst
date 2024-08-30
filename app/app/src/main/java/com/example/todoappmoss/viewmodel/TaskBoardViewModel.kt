@@ -1,6 +1,7 @@
 package com.example.todoappmoss.ui.taskboard
 
 import ApiClient
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
@@ -45,32 +46,43 @@ class TaskBoardViewModel : ViewModel() {
     fun updateTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
+                Log.d("TaskBoardViewModel", "Sending task update for task: ${task.id}")
                 val success = apiClient.updateTask(task)
                 if (success) {
+                    Log.d("TaskBoardViewModel", "Task update successful for task: ${task.id}")
                     val updatedList = _tasks.value?.map {
                         if (it.id == task.id) task else it
                     } ?: emptyList()
                     _tasks.postValue(updatedList)
+                }else{
+                    Log.e("TaskBoardViewModel", "Fehler beim Aktualisieren der Aufgabe: ${task.id}")
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
+                Log.e("TaskBoardViewModel", "Fehler beim Senden der Aktualisierung: ${e.message}")
             }
         }
     }
 
-    fun onCheckboxChecked(task: Task, isChecked: Boolean) {
-        val updatedTask = task.copy(isCompleted = isChecked)
+ // fun onCheckboxChecked(task: Task, isChecked: Boolean) {
+ //     val updatedTask = task.copy(isCompleted = isChecked)
 
-        viewModelScope.launch(Dispatchers.IO) {
-            val success = apiClient.updateTask(updatedTask)
-            if (success) {
-                val currentList = _tasks.value.orEmpty()
-                val updatedList = currentList.map { if (it.id == updatedTask.id) updatedTask else it }
 
-                _tasks.postValue(updatedList)
-            }
-        }
-    }
+ //     task.isCompleted = isChecked
+ //     Log.d("TaskBoardActivity", "Checkbox checked: $isChecked for task: ${task.id}")
+
+ //     updateTask(task)
+
+      //viewModelScope.launch(Dispatchers.IO) {
+      //    val success = apiClient.updateTask(updatedTask)
+      //    if (success) {
+      //         val currentList = _tasks.value.orEmpty()
+      //        val updatedList = currentList.map { if (it.id == updatedTask.id) updatedTask else it }
+
+      //        _tasks.postValue(updatedList)
+      //   }
+      //}
+   // }
 
 
     private fun filterTasksForToday(taskList: List<Task>?) {

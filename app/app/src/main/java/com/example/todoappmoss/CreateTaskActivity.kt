@@ -23,9 +23,7 @@ import com.example.todolistapp.R
 import com.google.gson.Gson
 import java.io.IOException
 import java.time.LocalDateTime
-import java.time.LocalTime
 import java.time.format.DateTimeFormatter
-import java.time.format.DateTimeParseException
 import java.util.Locale
 
 class CreateTaskActivity : AppCompatActivity() {
@@ -98,8 +96,7 @@ class CreateTaskActivity : AppCompatActivity() {
                 deadline = parsedDeadline.toString(),
                 isCompleted = false,
                 listId = 1,
-                createdAt = LocalDateTime.now().toString(),
-                repeatInterval = selectedRepeat.takeIf{it.isNotEmpty() },
+                priority = "High",
                 reminderTime = TaskUtils.parseReminderTime(selectedAlarm)
             )
 
@@ -108,7 +105,7 @@ class CreateTaskActivity : AppCompatActivity() {
             Log.d("Serialized Task", json)
 
             Log.d("CreateTaskActivity", "Reminder Time: ${newTask.reminderTime}")
-            Log.d("CreateTaskActivity", "Repeat Interval: ${newTask.repeatInterval}")
+            Log.d("CreateTaskActivity", "Repeat Interval: ${newTask.priority}")
 
             Log.d("CreateTaskActivity", "Save button clicked. Task: $newTask")
 

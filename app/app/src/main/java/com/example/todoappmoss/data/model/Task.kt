@@ -17,11 +17,8 @@ data class Task(
     @SerializedName("list_id")
     val listId: Int,
 
-    @SerializedName("created_at")
-    val createdAt: String,
-
-    @SerializedName("repeat_interval")
-    var repeatInterval: String? = null,
+    @SerializedName("priority")
+    var priority: String? = null,
 
     @SerializedName("reminder_time")
     var reminderTime: String? = null

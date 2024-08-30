@@ -46,14 +46,12 @@ namespace ToDoListAppBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<ToDoItem>> PostTask(ToDoItem task)
         {
-            _logger.LogInformation("ReminderTime: {ReminderTime}, RepeatInterval: {RepeatInterval}", task.ReminderTime, task.RepeatInterval);
     
             _logger.LogInformation("Received JSON: {@task}", task);
 
             var jsonReceived = JsonSerializer.Serialize(task);
             _logger.LogInformation("Received JSON: {jsonReceived}", jsonReceived);
 
-            Console.WriteLine($"{task.ReminderTime} und ${task.RepeatInterval}");
 
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
@@ -65,6 +63,8 @@ namespace ToDoListAppBackend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTask(int id, ToDoItem task)
         {
+
+            _logger.LogInformation("Received update request for Task ID: {id}", id);
             if (id != task.Id)
             {
                 return BadRequest();
@@ -75,6 +75,7 @@ namespace ToDoListAppBackend.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                _logger.LogInformation("Task updated successfully in the database.");
             }
             catch (DbUpdateConcurrencyException)
             {

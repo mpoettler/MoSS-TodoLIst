@@ -5,6 +5,7 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -51,6 +52,8 @@ class TaskBoardActivity : AppCompatActivity() {
 
     private fun onCheckboxChecked(task: Task, isChecked: Boolean) {
         task.isCompleted = isChecked
+        Log.d("TaskBoardActivity", "Checkbox checked: $isChecked for task: ${task.id}")
+
         viewModel.updateTask(task)
     }
 

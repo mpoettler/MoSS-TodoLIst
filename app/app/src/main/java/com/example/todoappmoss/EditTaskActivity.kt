@@ -1,17 +1,13 @@
 package com.example.todoappmoss
 
 import android.app.Activity
-import android.app.AlertDialog
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import com.example.todoappmoss.data.model.Task
 import com.example.todoappmoss.ui.edittask.EditTaskViewModel
 import com.example.todolistapp.R
@@ -40,14 +36,14 @@ class EditTaskActivity : AppCompatActivity() {
         descriptionEditText.setText(task.description)
         deadlineTextView.text = task.deadline
         reminderTimeTextView.text = task.reminderTime
-        repeatIntervalTextView.text = task.repeatInterval
+        repeatIntervalTextView.text = task.priority
 
         findViewById<Button>(R.id.saveButton).setOnClickListener {
             task.title = titleEditText.text.toString()
             task.description = descriptionEditText.text.toString()
             task.deadline = deadlineTextView.text.toString()
             task.reminderTime = reminderTimeTextView.text.toString()
-            task.repeatInterval = repeatIntervalTextView.text.toString()
+            task.priority = repeatIntervalTextView.text.toString()
 
             updateTask(task)
         }
