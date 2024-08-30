@@ -11,6 +11,8 @@ namespace ToDoListAppBackend.Models
         public DateTime? Deadline { get; set; }
 
         [Column("is_completed")]
+        [JsonPropertyName("is_completed")]
+
         public bool IsCompleted { get; set; } 
 
         [Column("list_id")]
