@@ -31,7 +31,7 @@ class CreateTaskActivity : AppCompatActivity() {
     private lateinit var selectedDate: String
     private lateinit var selectedTime: String
     private lateinit var selectedAlarm: String
-    private lateinit var selectedRepeat: String
+    private lateinit var priority: String
 
     private lateinit var viewModel: CreateTaskViewModel
 
@@ -72,11 +72,11 @@ class CreateTaskActivity : AppCompatActivity() {
         val repeatSpinner: Spinner = findViewById(R.id.repeatSpinner)
         repeatSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
-                selectedRepeat = parent.getItemAtPosition(position).toString()
+                priority = parent.getItemAtPosition(position).toString()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                selectedRepeat = "No Repeat"
+                priority = "No Repeat"
             }
         }
 
@@ -92,11 +92,11 @@ class CreateTaskActivity : AppCompatActivity() {
             val newTask = Task(
                 id = System.currentTimeMillis().toInt(),
                 title = title,
-                description = "Alarm: $selectedAlarm, Repeat: $selectedRepeat",
+                description = "$title  Alarm: $selectedAlarm  Priorität: $priority",
                 deadline = parsedDeadline.toString(),
                 isCompleted = false,
                 listId = 1,
-                priority = selectedRepeat,
+                priority = priority,
                 reminderTime = TaskUtils.parseReminderTime(selectedAlarm)
             )
 
