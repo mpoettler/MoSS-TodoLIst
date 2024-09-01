@@ -14,6 +14,8 @@ class ApiClient {
     private val client = OkHttpClient()
     private val gson = Gson()
     private val baseUrl = "http://10.0.2.2:5286/api/Tasks"
+    private val userUrl = "http://10.0.2.2:5286/api/Users"
+
 
     @Throws(IOException::class)
     fun getTodoItems(): List<Task> {
@@ -134,4 +136,53 @@ class ApiClient {
         }
     }
 
+
+    @Throws(IOException::class)
+    fun login(email: String, password: String): Boolean {
+        val json = gson.toJson(mapOf("email" to email, "password" to password))
+        val requestBody = json.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
+
+        val request = Request.Builder()
+            .url("$userUrl/login")
+            .post(requestBody)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            Log.d("ApiClient", "Login response code: ${response.code}")
+            return if (response.isSuccessful) {
+                Log.d("ApiClient", "Login successful")
+                val responseBody = response.body?.string()
+                Log.d("ApiClient", "Login successful: $responseBody")
+                true
+            } else {
+                Log.e("ApiClient", "Login failed: ${response.code}")
+                false
+            }
+        }
+    }
+
+    // Registration Request
+    @Throws(IOException::class)
+    fun register(username: String, email: String, password: String): Boolean {
+        val json = gson.toJson(
+            mapOf("username" to username, "email" to email, "password" to password)
+        )
+        val requestBody = json.toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
+
+        val request = Request.Builder()
+            .url(userUrl)
+            .post(requestBody)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            return if (response.isSuccessful) {
+                Log.d("ApiClient", "Registration successful")
+                true
+            } else {
+                Log.e("ApiClient", "Registration failed: ${response.code}")
+                false
+            }
+        }
+    }
 }
+

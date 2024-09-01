@@ -1,5 +1,7 @@
 package com.example.todoappmoss.ui.login
 
+import ApiClient
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,6 +10,11 @@ import com.example.todoappmoss.data.LoginRepository
 import com.example.todoappmoss.data.Result
 
 import com.example.todolistapp.R
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.IOException
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
@@ -17,17 +24,55 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
-    fun login(username: String, password: String) {
-        // can be launched in a separate asynchronous job
-        val result = loginRepository.login(username, password)
+    class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
-        if (result is Result.Success) {
-            _loginResult.value =
-                LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
-        } else {
-            _loginResult.value = LoginResult(error = R.string.login_failed)
+        private val _loginResult = MutableLiveData<LoginResult>()
+        val loginResult: LiveData<LoginResult> = _loginResult
+
+
+    }
+
+    fun register(username: String, email: String, password: String) {
+        try {
+            val apiClient = ApiClient()
+            val success = apiClient.register(username, email, password)
+
+            if (success) {
+                _loginResult.value = LoginResult(success = LoggedInUserView(displayName = username))
+            } else {
+                _loginResult.value = LoginResult(error = 1)
+            }
+        } catch (e: IOException) {
+            _loginResult.value = LoginResult(error = 1)
         }
     }
+
+    fun login(username: String, password: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                Log.d("LoginViewModel", "Starting login with username: $username")
+                val apiClient = ApiClient()
+                val success = apiClient.login(username, password)
+
+
+                withContext(Dispatchers.Main) {
+                    if (success) {
+                        Log.d("LoginViewModel", "Login successful")
+                        _loginResult.value = LoginResult(success = LoggedInUserView(displayName = username))
+                    } else {
+                        Log.e("LoginViewModel", "Login failed")
+                        _loginResult.value = LoginResult(error = R.string.login_failed)
+                    }
+                }
+            } catch (e: IOException) {
+                Log.e("LoginViewModel", "Network error during login", e)
+                withContext(Dispatchers.Main) {
+                    _loginResult.value = LoginResult(error = R.string.login_failed)
+                }
+            }
+        }
+    }
+
 
     fun loginDataChanged(username: String, password: String) {
 

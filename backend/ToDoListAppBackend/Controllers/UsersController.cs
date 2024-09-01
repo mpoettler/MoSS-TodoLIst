@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ToDoListAppBackend.Data;
+using ToDoListAppBackend.Dtos;
 using ToDoListAppBackend.Models;
 
 namespace ToDoListAppBackend.Controllers
@@ -15,6 +16,37 @@ namespace ToDoListAppBackend.Controllers
         {
             _context = context;
         }
+
+
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> Login([FromBody] LoginDto loginDto)
+        {
+            // Versuchen, den Benutzer anhand der übermittelten E-Mail oder des Benutzernamens zu finden
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Email == loginDto.Email);
+
+            if (user == null)
+            {
+                // Benutzer nicht gefunden
+                return BadRequest("User not found.");
+            }
+
+            // Überprüfen des Passworts (in einer realen Anwendung sollte dies durch Hashing erfolgen)
+            if (user.PasswordHash != loginDto.Password)
+            {
+                return BadRequest("Invalid password.");
+            }
+
+            // Wenn der Login erfolgreich ist, geben wir den Benutzer zurück (ohne das Passwort natürlich)
+            return Ok(new
+            {
+                user.UserId,
+                user.Username,
+                user.Email,
+                user.CreatedAt
+            });
+        }
+
 
         // GET: api/Users
         [HttpGet]
@@ -44,14 +76,14 @@ namespace ToDoListAppBackend.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetUser), new { id = user.UserId }, user);
         }
 
         // PUT: api/Users/5
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != user.Id)
+            if (id != user.UserId)
             {
                 return BadRequest();
             }
@@ -95,7 +127,7 @@ namespace ToDoListAppBackend.Controllers
 
         private bool UserExists(int id)
         {
-            return _context.Users.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.UserId == id);
         }
     }
 
