@@ -94,9 +94,9 @@ class CreateTaskActivity : AppCompatActivity() {
                 title = title,
                 description = "Alarm: $selectedAlarm, Repeat: $selectedRepeat",
                 deadline = parsedDeadline.toString(),
-                isCompleted = true,
+                isCompleted = false,
                 listId = 1,
-                priority = "High",
+                priority = selectedRepeat,
                 reminderTime = TaskUtils.parseReminderTime(selectedAlarm)
             )
 

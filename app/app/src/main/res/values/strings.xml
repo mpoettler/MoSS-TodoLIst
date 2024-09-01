@@ -21,9 +21,9 @@
     </string-array>
 
     <string-array name="repeat_options">
-        <item>Täglich</item>
-        <item>Wöchentlich</item>
-        <item>Monatlich</item>
+        <item>Niedrig</item>
+        <item>Mittel</item>
+        <item>Hoch</item>
     </string-array>
 
 </resources>
