@@ -1,5 +1,9 @@
 package com.example.myapplication
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +20,7 @@ import com.example.myapplication.ui.theme.MyApplicationTheme
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        createNotificationChannel(this)
         enableEdgeToEdge()
         setContent {
             MyApplicationTheme {
@@ -29,6 +34,22 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+fun createNotificationChannel(context: Context) {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val name = "Task Notifications"
+        val descriptionText = "Channel for task reminders"
+        val importance = NotificationManager.IMPORTANCE_HIGH
+        val channel = NotificationChannel("task_channel", name, importance).apply {
+            description = descriptionText
+        }
+
+        val notificationManager: NotificationManager =
+            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        notificationManager.createNotificationChannel(channel)
+    }
+}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿    using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace ToDoListAppBackend.Models
 {
@@ -10,12 +11,18 @@ namespace ToDoListAppBackend.Models
         public DateTime? Deadline { get; set; }
 
         [Column("is_completed")]
-        public bool IsCompleted { get; set; }  // Achte auf die richtige Typzuordnung
+        [JsonPropertyName("is_completed")]
+
+        public bool IsCompleted { get; set; } 
 
         [Column("list_id")]
         public int ListId { get; set; }
 
-        [Column("created_at")]
-        public DateTime CreatedAt { get; set; }
+        [Column("Priority")]
+        public string? Priority { get; set; } 
+
+        [Column("reminder_time")]
+        [JsonPropertyName("reminder_time")]
+        public TimeSpan? ReminderTime { get; set; }  
     }
-}
+}   

@@ -49,6 +49,16 @@ namespace ToDoListAppBackend.Migrations
                         .HasColumnType("int")
                         .HasColumnName("list_id");
 
+                    b.Property<TimeSpan?>("ReminderTime")
+                        .HasColumnType("time(6)")
+                        .HasColumnName("reminder_time")
+                        .HasAnnotation("Relational:JsonPropertyName", "reminder_time");
+
+                    b.Property<string>("RepeatInterval")
+                        .HasColumnType("longtext")
+                        .HasColumnName("repeat_interval")
+                        .HasAnnotation("Relational:JsonPropertyName", "repeat_interval");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("longtext");

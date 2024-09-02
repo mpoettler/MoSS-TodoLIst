@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,10 +13,12 @@ namespace ToDoListAppBackend.Controllers
     public class TasksController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly ILogger<TasksController> _logger;
 
-        public TasksController(AppDbContext context)
+        public TasksController(AppDbContext context, ILogger<TasksController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: api/Tasks
@@ -43,6 +46,13 @@ namespace ToDoListAppBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<ToDoItem>> PostTask(ToDoItem task)
         {
+    
+            _logger.LogInformation("Received JSON: {@task}", task);
+
+            var jsonReceived = JsonSerializer.Serialize(task);
+            _logger.LogInformation("Received JSON: {jsonReceived}", jsonReceived);
+
+
             _context.Tasks.Add(task);
             await _context.SaveChangesAsync();
 
@@ -53,6 +63,8 @@ namespace ToDoListAppBackend.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTask(int id, ToDoItem task)
         {
+
+            _logger.LogInformation("Received update request for Task ID: {id}", id);
             if (id != task.Id)
             {
                 return BadRequest();
@@ -63,6 +75,7 @@ namespace ToDoListAppBackend.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+                _logger.LogInformation("Task updated successfully in the database.");
             }
             catch (DbUpdateConcurrencyException)
             {

@@ -3,9 +3,9 @@ package com.example.todoappmoss.data.model
 import java.time.LocalDateTime
 
 data class User(
-    val id: Int,
+    val userId: Int,
     val username: String,
     val email: String,
     val createdAt: LocalDateTime,
-    val avatarUrl: String? = null
+    val PasswordHash: String
 )
