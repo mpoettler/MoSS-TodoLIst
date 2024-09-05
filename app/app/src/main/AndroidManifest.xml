@@ -16,20 +16,20 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/network_security_config"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_logotodo"
         android:supportsRtl="true"
         android:theme="@style/Theme.TodoAppMoss"
         tools:targetApi="31">
-        <receiver android:name="com.example.todoappmoss.bloc.NotificationReceiver"
+        <receiver android:name="at.fhjoanneum.todoappmoss.bloc.NotificationReceiver"
             android:enabled="true"
             android:exported="false"
             />
         <activity
-            android:name="com.example.todoappmoss.EditTaskActivity"
+            android:name="at.fhjoanneum.todoappmoss.EditTaskActivity"
             android:exported="false"
             android:theme="@style/Theme.TodoAppMoss.EditTask"/>
         <activity
-            android:name="com.example.todoappmoss.SplashActivity"
+            android:name="at.fhjoanneum.todoappmoss.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.TodoAppMoss.Splash">
@@ -40,25 +40,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.todoappmoss.CalendarActivity"
+            android:name="at.fhjoanneum.todoappmoss.CalendarActivity"
             android:exported="false"
             android:theme="@style/Theme.TodoAppMoss.Calendar" />
         <activity
-            android:name="com.example.todoappmoss.CreateTaskActivity"
+            android:name="at.fhjoanneum.todoappmoss.CreateTaskActivity"
             android:exported="false"
             android:theme="@style/Theme.TodoAppMoss.CreateTask" />
         <activity
-            android:name="com.example.todoappmoss.TaskBoardActivity"
+            android:name="at.fhjoanneum.todoappmoss.TaskBoardActivity"
             android:exported="true"
             android:theme="@style/Theme.TodoAppMoss.Taskboard" />
         <activity
-            android:name="com.example.todoappmoss.ui.login.LoginActivity"
+            android:name="at.fhjoanneum.todoappmoss.ui.login.LoginActivity"
             android:exported="false"
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.TodoAppMoss.Login" />
 
 
-        <receiver android:name="com.example.todoappmoss.bloc.BootReceiver" android:exported="true">
+        <receiver android:name="at.fhjoanneum.todoappmoss.bloc.BootReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />

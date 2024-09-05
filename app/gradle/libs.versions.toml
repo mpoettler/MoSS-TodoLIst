@@ -27,7 +27,16 @@ roomCommon = "2.6.1"
 roomKtx = "2.6.1"
 playServicesPal = "20.3.0"
 
+
+archCore = "2.1.0"
+mockito = "3.11.2"
+coroutines = "1.5.2"
+
 [libraries]
+
+
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+
 androidx-recyclerview-v121 = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerviewVersion" }
 gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 gson-v2101 = { module = "com.google.code.gson:gson", version.ref = "gsonVersion" }
@@ -62,6 +71,11 @@ androidx-media3-common = { group = "androidx.media3", name = "media3-common", ve
 androidx-room-common = { group = "androidx.room", name = "room-common", version.ref = "roomCommon" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
 play-services-pal = { group = "com.google.android.gms", name = "play-services-pal", version.ref = "playServicesPal" }
+
+arch-testing = { module = "androidx.arch.core:core-testing", version.ref = "archCore" }
+
+mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
+mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockito" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -51,10 +51,21 @@ android {
 
 dependencies {
 
+
+    testImplementation(libs.junit)
+
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockito.inline)
+
+    testImplementation(libs.kotlinx.coroutines.test)
+
+    testImplementation(libs.arch.testing)
+
+    implementation(libs.gson)
+
     implementation(libs.androidx.recyclerview.v121)
     implementation(libs.okhttp.v493)
     implementation(libs.gson.v2101)
-
 
     implementation(libs.androidx.recyclerview)
 
