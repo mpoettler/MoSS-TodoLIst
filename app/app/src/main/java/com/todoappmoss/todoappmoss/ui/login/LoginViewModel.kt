@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.example.todolistapp.R
+import at.fhjoanneum.todoappmoss.R
 import com.todoappmoss.todoappmoss.data.LoginRepository
 
 import kotlinx.coroutines.CoroutineScope

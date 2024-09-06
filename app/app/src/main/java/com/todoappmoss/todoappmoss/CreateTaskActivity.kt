@@ -17,7 +17,6 @@ import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.example.todolistapp.R
 import com.todoappmoss.todoappmoss.data.model.Task
 import com.todoappmoss.todoappmoss.ui.createtask.CreateTaskViewModel
 import com.google.gson.Gson

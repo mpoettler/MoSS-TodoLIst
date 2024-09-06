@@ -29,7 +29,7 @@ playServicesPal = "20.3.0"
 
 
 archCore = "2.1.0"
-mockito = "3.11.2"
+mockito = "5.0.0"
 coroutines = "1.5.2"
 
 [libraries]

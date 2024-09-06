@@ -10,14 +10,14 @@
         android:id="@+id/editTaskTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title"
+        android:hint="Titel"
         android:textSize="18sp" />
 
     <EditText
         android:id="@+id/editTaskDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Description"
+        android:hint="Beschreibung"
         android:textSize="18sp" />
 
     <!-- Deadline -->
@@ -33,7 +33,7 @@
         android:id="@+id/editTaskReminderTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Reminder Time"
+        android:text="Erinnerung"
         android:paddingTop="16dp" />
 
     <!-- Repeat Interval -->
@@ -41,7 +41,7 @@
         android:id="@+id/editTaskRepeatInterval"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Repeat Interval"
+        android:text="Wiederholung"
         android:paddingTop="16dp" />
 
     <!-- Buttons -->

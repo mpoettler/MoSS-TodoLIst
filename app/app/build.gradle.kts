@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "com.example.todolistapp"
+    namespace = "at.fhjoanneum.todoappmoss"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -28,6 +28,9 @@ android {
             )
         }
     }
+
+    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -52,14 +55,13 @@ android {
 dependencies {
 
 
-    testImplementation(libs.junit)
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation("org.mockito:mockito-core:5.0.0")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
 
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.inline)
 
-    testImplementation(libs.kotlinx.coroutines.test)
-
-    testImplementation(libs.arch.testing)
 
     implementation(libs.gson)
 

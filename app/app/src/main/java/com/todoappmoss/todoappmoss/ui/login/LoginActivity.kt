@@ -12,14 +12,16 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import at.fhjoanneum.todoappmoss.R
 import at.fhjoanneum.todoappmoss.TaskBoardActivity
-import com.example.todolistapp.R
-import com.example.todolistapp.databinding.ActivityLoginBinding
+import at.fhjoanneum.todoappmoss.databinding.ActivityLoginBinding
 import com.todoappmoss.todoappmoss.ui.login.LoggedInUserView
 import com.todoappmoss.todoappmoss.ui.login.LoginViewModel
 import com.todoappmoss.todoappmoss.ui.login.LoginViewModelFactory
+import com.todoappmoss.todoappmoss.ui.register.RegisterActivity
 
 
 class LoginActivity : AppCompatActivity() {
@@ -37,6 +39,8 @@ class LoginActivity : AppCompatActivity() {
         val password = binding.password
         val login = binding.login
         val loading = binding.loading
+        val registerButton = findViewById<Button>(R.id.register)
+
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
@@ -102,11 +106,18 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
+            registerButton?.setOnClickListener {
+                val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
+                startActivity(intent)
+            }
+
             login.setOnClickListener {
                 Log.d("LoginActivity", "Login button clicked")
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
+
+
 
 
         }
@@ -116,7 +127,6 @@ class LoginActivity : AppCompatActivity() {
     private fun updateUiWithUser(model: LoggedInUserView) {
         val welcome = getString(R.string.welcome)
         val displayName = model.displayName
-        // TODO : initiate successful logged in experience
         Toast.makeText(
             applicationContext,
             "$welcome $displayName",

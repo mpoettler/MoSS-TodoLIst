@@ -9,7 +9,6 @@
     import androidx.lifecycle.ViewModelProvider
     import androidx.recyclerview.widget.LinearLayoutManager
     import androidx.recyclerview.widget.RecyclerView
-    import com.example.todolistapp.R
     import com.todoappmoss.todoappmoss.adapter.ToDoItemAdapter
     import com.todoappmoss.todoappmoss.data.model.Task
     import com.todoappmoss.todoappmoss.ui.calendar.CalendarViewModel

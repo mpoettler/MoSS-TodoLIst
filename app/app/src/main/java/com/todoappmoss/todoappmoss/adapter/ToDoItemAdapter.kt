@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todolistapp.R
+import at.fhjoanneum.todoappmoss.R
 import com.todoappmoss.todoappmoss.data.model.Task
 
 class ToDoItemAdapter(

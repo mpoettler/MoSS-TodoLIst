@@ -29,15 +29,16 @@ class CalendarViewModel : ViewModel() {
         loadTasksForDate(date)
     }
 
+
     fun updateTaskCompletion(task: Task, isCompleted: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
-            task.isCompleted = isCompleted // Set the completion status
+            task.isCompleted = isCompleted
             val success = apiClient.updateTask(task)
             if (success) {
                 val updatedList = _tasks.value?.map {
                     if (it.id == task.id) task else it
                 }
-                _tasks.postValue(updatedList ?: listOf()) // Update the list in LiveData
+                _tasks.postValue(updatedList ?: listOf())
             }
         }
     }

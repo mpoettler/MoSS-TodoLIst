@@ -8,7 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.example.todolistapp.R
 import com.todoappmoss.todoappmoss.data.model.Task
 import com.todoappmoss.todoappmoss.ui.edittask.EditTaskViewModel
 import kotlinx.coroutines.CoroutineScope

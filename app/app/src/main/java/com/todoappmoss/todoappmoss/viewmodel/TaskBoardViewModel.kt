@@ -31,12 +31,21 @@ class TaskBoardViewModel : ViewModel() {
         }
     }
 
-
+    // Load tasks and sort by priority before posting the result
     fun loadTasks() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val items = apiClient.getTodoItems()
-                _tasks.postValue(items)
+                // Sort tasks by priority (High -> Medium -> Low)
+                val sortedTasks = items.sortedBy { task ->
+                    when (task.priority) {
+                        "Hoch" -> 1
+                        "Mittel" -> 2
+                        "Niedrig" -> 3
+                        else -> 4
+                    }
+                }
+                _tasks.postValue(sortedTasks)
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -53,8 +62,17 @@ class TaskBoardViewModel : ViewModel() {
                     val updatedList = _tasks.value?.map {
                         if (it.id == task.id) task else it
                     } ?: emptyList()
-                    _tasks.postValue(updatedList)
-                }else{
+                    // Sort updated tasks by priority
+                    val sortedList = updatedList.sortedBy { updatedTask ->
+                        when (updatedTask.priority) {
+                            "Hoch" -> 1
+                            "Mittel" -> 2
+                            "Niedrig" -> 3
+                            else -> 4
+                        }
+                    }
+                    _tasks.postValue(sortedList)
+                } else {
                     Log.e("TaskBoardViewModel", "Fehler beim Aktualisieren der Aufgabe: ${task.id}")
                 }
             } catch (e: IOException) {
@@ -64,8 +82,7 @@ class TaskBoardViewModel : ViewModel() {
         }
     }
 
-
-
+    // Filter tasks for today and sort them by priority
     fun filterTasksForToday(taskList: List<Task>?) {
         val today = LocalDate.now()
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
@@ -75,6 +92,13 @@ class TaskBoardViewModel : ViewModel() {
                 val deadlineDateTime = LocalDateTime.parse(deadlineString, formatter)
                 deadlineDateTime.toLocalDate() == today
             } ?: false
+        }?.sortedBy { task ->
+            when (task.priority) {
+                "Hoch" -> 1
+                "Mittel" -> 2
+                "Niedrig" -> 3
+                else -> 4
+            }
         } ?: emptyList()
 
         _filteredTasks.value = filteredList

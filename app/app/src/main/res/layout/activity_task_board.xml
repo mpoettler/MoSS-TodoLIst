@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context="com.todoappmoss.todoappmoss.TaskBoardActivity">
+    tools:context="at.fhjoanneum.todoappmoss.TaskBoardActivity">
 
     <!-- Title -->
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="Todo Moss"
+        android:text="TodoAppMoss"
         android:textSize="24sp"
         android:textStyle="bold"
         android:textColor="#000000" />
@@ -32,7 +32,7 @@
             android:id="@+id/current_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jun 10, 2024"
+            android:text="September 10, 2024"
             android:textSize="18sp"
             android:textColor="#000000" />
 
@@ -40,7 +40,6 @@
             android:id="@+id/current_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="9:41 AM"
             android:layout_marginStart="16dp"
             android:textSize="18sp"
             android:textColor="#000000" />
