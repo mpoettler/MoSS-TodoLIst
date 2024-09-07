@@ -31,6 +31,8 @@ class RegisterActivity : AppCompatActivity() {
         registerViewModel = ViewModelProvider(this).get(RegisterViewModel::class.java)
 
         registerViewModel.registerResult.observe(this, Observer { result ->
+            registerButton.isEnabled = true
+
             if (result) {
                 Toast.makeText(this, "Registrierung erfolgreich!", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, LoginActivity::class.java)
@@ -42,6 +44,8 @@ class RegisterActivity : AppCompatActivity() {
         })
 
         registerButton.setOnClickListener {
+            registerButton.isEnabled = false
+
             val usernameText = username.text.toString()
             val emailText = email.text.toString()
             val passwordText = password.text.toString()
@@ -50,8 +54,10 @@ class RegisterActivity : AppCompatActivity() {
 
             if (usernameText.isNotBlank() && emailText.isNotBlank() && passwordText.isNotBlank()) {
                 registerViewModel.registerUser(usernameText, emailText, passwordText)
+                registerButton.isEnabled = true
             } else {
                 Toast.makeText(this, "Bitte füllen Sie alle Felder aus.", Toast.LENGTH_SHORT).show()
+                registerButton.isEnabled = true
             }
         }
 
