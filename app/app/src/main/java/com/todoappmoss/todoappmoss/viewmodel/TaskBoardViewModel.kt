@@ -18,7 +18,7 @@ import java.util.Locale
 
 class TaskBoardViewModel : ViewModel() {
 
-    private val _tasks = MutableLiveData<List<Task>>()
+    val _tasks = MutableLiveData<List<Task>>()
     val tasks: LiveData<List<Task>> = _tasks
     private val apiClient = ApiClient()
 

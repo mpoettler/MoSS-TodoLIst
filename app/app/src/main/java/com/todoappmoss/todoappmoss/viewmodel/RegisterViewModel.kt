@@ -34,7 +34,7 @@ class RegisterViewModel : ViewModel() {
         }
     }
 
-    private fun hashPassword(password: String): String {
+    fun hashPassword(password: String): String {
         return password
     }
 }

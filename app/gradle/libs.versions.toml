@@ -31,6 +31,8 @@ playServicesPal = "20.3.0"
 archCore = "2.1.0"
 mockito = "5.0.0"
 coroutines = "1.5.2"
+coreKtxVersion = "1.6.1"
+junitKtx = "1.2.1"
 
 [libraries]
 
@@ -76,6 +78,8 @@ arch-testing = { module = "androidx.arch.core:core-testing", version.ref = "arch
 
 mockito-core = { module = "org.mockito:mockito-core", version.ref = "mockito" }
 mockito-inline = { module = "org.mockito:mockito-inline", version.ref = "mockito" }
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -16,8 +16,6 @@ class EditTaskViewModel : ViewModel() {
         this.task = task
     }
 
-
-
     suspend fun updateTask(updatedTask: Task): Boolean {
         return withContext(Dispatchers.IO) {
             try {

@@ -16,7 +16,7 @@
 
     class CalendarActivity : AppCompatActivity() {
 
-        private lateinit var viewModel: CalendarViewModel
+        lateinit var viewModel: CalendarViewModel
         private lateinit var adapter: ToDoItemAdapter
 
         override fun onCreate(savedInstanceState: Bundle?) {

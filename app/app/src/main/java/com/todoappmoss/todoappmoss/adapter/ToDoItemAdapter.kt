@@ -11,10 +11,12 @@ import at.fhjoanneum.todoappmoss.R
 import com.todoappmoss.todoappmoss.data.model.Task
 
 class ToDoItemAdapter(
-    private var todoList: List<Task>,
+    public var todoList: List<Task>,
     private val onItemClick: (Task) -> Unit,
     private val onCheckboxChecked: (Task, Boolean) -> Unit
 ) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
+
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
