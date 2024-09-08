@@ -4,6 +4,7 @@ import com.google.common.reflect.TypeToken
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import com.google.gson.Gson
+import com.todoappmoss.todoappmoss.data.model.User
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
@@ -121,6 +122,20 @@ class ApiClient {
         } catch (e: IOException) {
             Log.e("ApiClient", "Fehler beim Aktualisieren der Aufgabe: ${e.message}")
             false
+        }
+    }
+
+    @Throws(IOException::class)
+    fun getUsers(): List<User> {
+        val request = Request.Builder()
+            .url(userUrl)
+            .build()
+
+        client.newCall(request).execute().use { response ->
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+            val json = response.body?.string()
+            return gson.fromJson(json, object : TypeToken<List<User>>() {}.type)
         }
     }
 

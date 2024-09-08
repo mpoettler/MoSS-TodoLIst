@@ -24,7 +24,7 @@ class ToDoItemAdapter(
     override fun onBindViewHolder(holder: ToDoItemViewHolder, position: Int) {
         val todoItem = todoList[position]
 
-        holder.toDoTitle.text = todoItem.title
+        holder.toDoTitle.text = todoItem.priority?.substring(0,1)
         holder.toDoDescription.text = todoItem.description ?: ""
 
         holder.itemCheckbox.isChecked = todoItem.isCompleted

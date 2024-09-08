@@ -11,6 +11,14 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_activity_taskboard_home">TaskboardHome</string>
     <string name="title_activity_add_task">AddTaskActivity</string>
+    <string name="login">Login</string>
+    <string name="benutzername">Benutzername</string>
+    <string name="logo">Logo</string>
+    <string name="register">Register</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="passwort">Passwort</string>
+    <string name="registrieren">Registrieren</string>
+    <string name="abbrechen">Abbrechen</string>
 
     <string-array name="alarm_options">
         <item>Kein Alarm</item>

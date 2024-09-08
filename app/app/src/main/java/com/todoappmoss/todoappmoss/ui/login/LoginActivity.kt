@@ -76,7 +76,6 @@ class LoginActivity : AppCompatActivity() {
             }
             setResult(Activity.RESULT_OK)
 
-            //finish()
         })
 
         username.afterTextChanged {
