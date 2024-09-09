@@ -52,6 +52,7 @@ class TaskBoardViewModel : ViewModel() {
         }
     }
 
+    // Update a task on the server and update the local list
     fun updateTask(task: Task) {
         viewModelScope.launch(Dispatchers.IO) {
             try {

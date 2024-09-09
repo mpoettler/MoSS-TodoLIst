@@ -23,6 +23,7 @@ object TaskUtils {
             else -> null
         }
     }
+
     private fun formatTimeFromNow(seconds: Int): String {
         val now = LocalDateTime.now()
         val reminderTime = now.plusSeconds(seconds.toLong())

@@ -24,12 +24,13 @@ class CalendarViewModel : ViewModel() {
     private val _tasksForDate = MutableLiveData<List<Task>>()
     val tasksForDate: LiveData<List<Task>> = _tasksForDate
 
+
     fun selectDate(date: Date) {
         _selectedDate.value = date
         loadTasksForDate(date)
     }
 
-
+    // Load tasks for the selected date
     fun updateTaskCompletion(task: Task, isCompleted: Boolean) {
         viewModelScope.launch(Dispatchers.IO) {
             task.isCompleted = isCompleted
@@ -43,9 +44,7 @@ class CalendarViewModel : ViewModel() {
         }
     }
 
-
-
-
+    // Load all tasks for the choosen date
     fun loadTasksForDate(date: Date) {
         CoroutineScope(Dispatchers.IO).launch {
             try {

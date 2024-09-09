@@ -49,6 +49,7 @@
             }
         }
 
+        // Handle click on a task item
         private fun onTaskClicked(task: Task) {
             val intent = Intent(this, EditTaskActivity::class.java).apply {
                 putExtra("task", task)
@@ -56,6 +57,7 @@
             startActivity(intent)
         }
 
+        // Set up navigation buttons
         private fun setupNavigationButtons() {
             val homeButton: ImageView = findViewById(R.id.navigation_home)
             val addButton: ImageView = findViewById(R.id.navigation_add)
@@ -77,10 +79,12 @@
             }
         }
 
+        // Update the RecyclerView with new task data
         private fun updateTasksRecyclerView(tasks: List<Task>) {
             adapter.updateData(tasks)
         }
 
+        // Handle checkbox state changes
         private fun onCheckboxChecked(task: Task, isChecked: Boolean) {
             viewModel.updateTaskCompletion(task, isChecked)
         }

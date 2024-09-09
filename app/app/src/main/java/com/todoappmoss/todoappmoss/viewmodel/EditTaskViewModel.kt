@@ -16,6 +16,7 @@ class EditTaskViewModel : ViewModel() {
         this.task = task
     }
 
+    // Other methods for updating and deleting tasks
     suspend fun updateTask(updatedTask: Task): Boolean {
         return withContext(Dispatchers.IO) {
             try {
@@ -28,6 +29,7 @@ class EditTaskViewModel : ViewModel() {
         }
     }
 
+    // Other methods for updating and deleting tasks
     suspend fun deleteTask(taskId: Int): Boolean {
         return withContext(Dispatchers.IO) {
             try {

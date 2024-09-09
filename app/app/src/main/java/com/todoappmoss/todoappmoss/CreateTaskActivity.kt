@@ -106,7 +106,6 @@ class CreateTaskActivity : AppCompatActivity() {
                 reminderTime = TaskUtils.parseReminderTime(selectedAlarm)
             )
 
-
             val json = Gson().toJson(newTask)
             Log.d("Serialized Task", json)
 
@@ -135,6 +134,10 @@ class CreateTaskActivity : AppCompatActivity() {
                                     putExtra("new_task", newTask)
                                 }
                                 setResult(Activity.RESULT_OK, resultIntent)
+
+                                val intent = Intent(this@CreateTaskActivity, TaskBoardActivity::class.java)
+                                startActivity(intent)
+
                                 finish()
                             }
                             .show()
@@ -158,6 +161,7 @@ class CreateTaskActivity : AppCompatActivity() {
             }
         }}
 
+    // Set up navigation buttons
     private fun setupNavigationButtons() {
     }
 }

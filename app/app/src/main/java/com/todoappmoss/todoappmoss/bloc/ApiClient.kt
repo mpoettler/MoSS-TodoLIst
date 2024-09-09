@@ -14,12 +14,15 @@ import java.time.format.DateTimeFormatter
 
 class ApiClient {
 
+    // Initialize OkHttpClient and Gson
     private val client = OkHttpClient()
     private val gson = Gson()
 
+    // Define your API endpoints here
     private val baseUrl = "https://mossrestapi-esdkf7hpc3fmadf4.germanywestcentral-01.azurewebsites.net/api/Tasks"
     private val userUrl = "https://mossrestapi-esdkf7hpc3fmadf4.germanywestcentral-01.azurewebsites.net/api/Users"
 
+    // Fetch tasks from the API
     @Throws(IOException::class)
     fun getTodoItems(): List<Task> {
         val request = Request.Builder()
@@ -42,6 +45,7 @@ class ApiClient {
         }
     }
 
+    // Fetch a specific task by ID
     @Throws(IOException::class)
     fun getTodoItemById(id: Int): Task? {
         val url = "$baseUrl/$id"
@@ -61,10 +65,11 @@ class ApiClient {
         }
     }
 
+    // Register a new user
     @Throws(IOException::class)
     suspend fun registerUser(username: String, email: String, password: String): Boolean {
         val newUser = mapOf(
-            "Username" to username,  // Stelle sicher, dass dies mit dem API-Schema übereinstimmt
+            "Username" to username,
             "Email" to email,
             "PasswordHash" to password,
             "CreatedAt" to LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME)
@@ -87,7 +92,7 @@ class ApiClient {
         }
     }
 
-
+    // Fetch tasks for a specific date
     @Throws(IOException::class)
     fun getTasksForDate(date: String): List<Task> {
         val url = "$baseUrl?date=$date"
@@ -104,6 +109,7 @@ class ApiClient {
         }
     }
 
+    // Update a task
     @Throws(IOException::class)
     suspend fun updateTask(updatedTask: Task): Boolean {
         return try {
@@ -125,6 +131,7 @@ class ApiClient {
         }
     }
 
+    // Fetch all users
     @Throws(IOException::class)
     fun getUsers(): List<User> {
         val request = Request.Builder()
@@ -140,6 +147,7 @@ class ApiClient {
     }
 
 
+    // Delete a task
     @Throws(IOException::class)
     fun deleteTask(id: Int): Boolean {
         val request = Request.Builder()
@@ -156,6 +164,7 @@ class ApiClient {
         }
     }
 
+    // Create a new task
     @Throws(IOException::class)
     fun postTask(newTask: Task): Boolean {
         val jsonTask = gson.toJson(newTask)
@@ -181,6 +190,7 @@ class ApiClient {
     }
 
 
+    // Login Request
     @Throws(IOException::class)
     fun login(email: String, password: String): Boolean {
         val json = gson.toJson(mapOf("email" to email, "password" to password))

@@ -54,6 +54,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
                 withContext(Dispatchers.Main) {
                     if (success) {
+
                         Log.d("LoginViewModel", "Login successful")
                         _loginResult.value = LoginResult(success = LoggedInUserView(displayName = username))
                     } else {

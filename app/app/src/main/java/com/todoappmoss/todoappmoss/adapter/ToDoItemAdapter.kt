@@ -16,13 +16,13 @@ class ToDoItemAdapter(
     private val onCheckboxChecked: (Task, Boolean) -> Unit
 ) : RecyclerView.Adapter<ToDoItemAdapter.ToDoItemViewHolder>() {
 
-
-
+    // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ToDoItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_todo, parent, false)
         return ToDoItemViewHolder(view)
     }
 
+    // Replace the contents of a view (invoked by the layout manager)
     override fun onBindViewHolder(holder: ToDoItemViewHolder, position: Int) {
         val todoItem = todoList[position]
 
@@ -42,15 +42,18 @@ class ToDoItemAdapter(
         }
     }
 
+    // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount(): Int {
         return todoList.size
     }
 
+    // Update the data set and notify the adapter
     fun updateData(newTodoList: List<Task>) {
         todoList = newTodoList
         notifyDataSetChanged()
     }
 
+    // View holder for each item in the RecyclerView
     inner class ToDoItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val toDoTitle: TextView = itemView.findViewById(R.id.toDoTitle)
         val toDoDescription: TextView = itemView.findViewById(R.id.toDoDescription)

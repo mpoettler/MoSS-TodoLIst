@@ -26,6 +26,4 @@ data class Task(
 
 ) : Serializable
 
-enum class Priority {
-    LOW, MEDIUM, HIGH
-}
+

@@ -1,6 +1,7 @@
 package at.fhjoanneum.todoappmoss
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -26,25 +27,24 @@ class EditTaskActivity : AppCompatActivity() {
         viewModel.loadTask(task)
 
         val titleEditText = findViewById<EditText>(R.id.editTaskTitle)
-        val descriptionEditText = findViewById<EditText>(R.id.editTaskDescription)
         val deadlineTextView = findViewById<TextView>(R.id.editTaskDeadline)
-        val reminderTimeTextView = findViewById<TextView>(R.id.editTaskReminderTime)
         val repeatIntervalTextView = findViewById<TextView>(R.id.editTaskRepeatInterval)
 
         titleEditText.setText(task.title)
-        descriptionEditText.setText(task.description)
         deadlineTextView.text = task.deadline
-        reminderTimeTextView.text = task.reminderTime
         repeatIntervalTextView.text = task.priority
 
         findViewById<Button>(R.id.saveButton).setOnClickListener {
             task.title = titleEditText.text.toString()
-            task.description = descriptionEditText.text.toString()
             task.deadline = deadlineTextView.text.toString()
-            task.reminderTime = reminderTimeTextView.text.toString()
             task.priority = repeatIntervalTextView.text.toString()
 
             updateTask(task)
+
+            val intent = Intent(this@EditTaskActivity, TaskBoardActivity::class.java)
+            startActivity(intent)
+
+            finish()
         }
 
         findViewById<Button>(R.id.deleteButton).setOnClickListener {
@@ -64,6 +64,7 @@ class EditTaskActivity : AppCompatActivity() {
 
 
 
+    //Funktion that Updated Selected Task
     private fun updateTask(task: Task) {
         CoroutineScope(Dispatchers.Main).launch {
             val success = viewModel.updateTask(task)
@@ -77,6 +78,7 @@ class EditTaskActivity : AppCompatActivity() {
         }
     }
 
+    //Funktion that deletes Selected Task
     private fun deleteTask(taskId: Int) {
         CoroutineScope(Dispatchers.Main).launch {
             val success = viewModel.deleteTask(taskId)

@@ -13,31 +13,18 @@
         android:hint="Titel"
         android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/editTaskDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Beschreibung"
-        android:textSize="18sp" />
+
 
     <!-- Deadline -->
-    <TextView
+    <EditText
         android:id="@+id/editTaskDeadline"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Deadline"
         android:paddingTop="16dp" />
 
-    <!-- Reminder Time -->
-    <TextView
-        android:id="@+id/editTaskReminderTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Erinnerung"
-        android:paddingTop="16dp" />
-
     <!-- Repeat Interval -->
-    <TextView
+    <EditText
         android:id="@+id/editTaskRepeatInterval"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

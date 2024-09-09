@@ -16,6 +16,7 @@ class RegisterViewModel : ViewModel() {
 
     private val apiClient = ApiClient()
 
+    // Function to handle user registration
     fun registerUser(username: String, email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
@@ -34,6 +35,7 @@ class RegisterViewModel : ViewModel() {
         }
     }
 
+    // Function to hash the password
     fun hashPassword(password: String): String {
         return password
     }
