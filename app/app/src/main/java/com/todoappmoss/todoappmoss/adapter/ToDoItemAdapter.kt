@@ -27,8 +27,7 @@ class ToDoItemAdapter(
         val todoItem = todoList[position]
 
         holder.toDoTitle.text = todoItem.priority?.substring(0,1)
-        holder.toDoDescription.text = todoItem.description ?: ""
-
+        holder.toDoDescription.text = todoItem.title + "  Priority: " + todoItem.priority
         holder.itemCheckbox.isChecked = todoItem.isCompleted
 
 
