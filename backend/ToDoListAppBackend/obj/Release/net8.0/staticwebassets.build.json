@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "kTR6wgJOyWpMmrMXJsrxZ+TDExKKq0/4uC18GxwDePM=",
+  "Source": "ToDoListAppBackend",
+  "BasePath": "_content/ToDoListAppBackend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -18,17 +18,17 @@ namespace ToDoListAppBackend.Repositories
 
         public async Task<IEnumerable<ToDoItem>> GetToDoItemsAsync()
         {
-            return await _context.ToDoItems.ToListAsync();
+            return await _context.Tasks.ToListAsync();
         }
 
         public async Task<ToDoItem> GetToDoItemByIdAsync(int id)
         {
-            return await _context.ToDoItems.FindAsync(id);
+            return await _context.Tasks.FindAsync(id);
         }
 
         public async Task CreateToDoItemAsync(ToDoItem toDoItem)
         {
-            _context.ToDoItems.Add(toDoItem);
+            _context.Tasks.Add(toDoItem);
             await _context.SaveChangesAsync();
         }
 
@@ -40,10 +40,10 @@ namespace ToDoListAppBackend.Repositories
 
         public async Task DeleteToDoItemAsync(int id)
         {
-            var toDoItem = await _context.ToDoItems.FindAsync(id);
+            var toDoItem = await _context.Tasks.FindAsync(id);
             if (toDoItem != null)
             {
-                _context.ToDoItems.Remove(toDoItem);
+                _context.Tasks.Remove(toDoItem);
                 await _context.SaveChangesAsync();
             }
         }

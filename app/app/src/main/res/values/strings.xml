@@ -1,3 +1,37 @@
 <resources>
     <string name="app_name">TodoAppMoss</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="title_activity_taskboard_home">TaskboardHome</string>
+    <string name="title_activity_add_task">AddTaskActivity</string>
+    <string name="login">Login</string>
+    <string name="benutzername">Benutzername</string>
+    <string name="logo">Logo</string>
+    <string name="register">Register</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="passwort">Passwort</string>
+    <string name="registrieren">Registrieren</string>
+    <string name="abbrechen">Abbrechen</string>
+
+    <string-array name="alarm_options">
+        <item>Kein Alarm</item>
+        <item>10 Minuten vorher</item>
+        <item>30 Minuten vorher</item>
+        <item>1 Stunde vorher</item>
+        <item>1 Tag vorher</item>
+    </string-array>
+
+    <string-array name="repeat_options">
+        <item>Niedrig</item>
+        <item>Mittel</item>
+        <item>Hoch</item>
+    </string-array>
+
 </resources>

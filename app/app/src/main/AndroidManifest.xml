@@ -2,27 +2,78 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-permission
+        android:name="com.google.android.gms.permission.AD_ID"
+        tools:node="remove"/>
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_logotodo"
         android:supportsRtl="true"
         android:theme="@style/Theme.TodoAppMoss"
         tools:targetApi="31">
+        <receiver android:name="at.fhjoanneum.todoappmoss.bloc.NotificationReceiver"
+            android:enabled="true"
+            android:exported="false"
+            />
         <activity
-            android:name=".MainActivity"
+            android:name="at.fhjoanneum.todoappmoss.EditTaskActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.EditTask"/>
+        <activity
+            android:name="at.fhjoanneum.todoappmoss.SplashActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.TodoAppMoss">
+            android:theme="@style/Theme.TodoAppMoss.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="at.fhjoanneum.todoappmoss.CalendarActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.Calendar" />
+        <activity
+            android:name="at.fhjoanneum.todoappmoss.CreateTaskActivity"
+            android:exported="false"
+            android:theme="@style/Theme.TodoAppMoss.CreateTask" />
+        <activity
+            android:name="at.fhjoanneum.todoappmoss.TaskBoardActivity"
+            android:exported="true"
+            android:theme="@style/Theme.TodoAppMoss.Taskboard" />
+        <activity
+            android:name="at.fhjoanneum.todoappmoss.ui.login.LoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_login"
+            android:theme="@style/Theme.TodoAppMoss.Login" />
+        <activity android:name="com.todoappmoss.todoappmoss.ui.register.RegisterActivity"
+            android:theme="@style/Theme.TodoAppMoss.Register" />
+
+        />
+
+
+
+
+        <receiver android:name="at.fhjoanneum.todoappmoss.bloc.BootReceiver" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
