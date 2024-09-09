@@ -7,18 +7,6 @@
       "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\controllers\\todoitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:controllers\\todoitemcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,8 +15,16 @@
       "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|c:\\users\\mpoet\\desktop\\mossprojekt\\moss-todolist\\backend\\todolistappbackend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{32E54E0C-0642-467F-8693-44104DD29A44}|ToDoListAppBackend.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,19 +34,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "LoginDto.cs",
-              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Dtos\\LoginDto.cs",
-              "RelativeDocumentMoniker": "Dtos\\LoginDto.cs",
-              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Dtos\\LoginDto.cs",
-              "RelativeToolTip": "Dtos\\LoginDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T22:04:01.26Z"
+              "WhenOpened": "2024-09-07T22:09:29.865Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Controllers\\WeatherForecastController.cs",
+              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Controllers\\WeatherForecastController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-07T22:09:25.807Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -60,70 +70,48 @@
               "RelativeDocumentMoniker": "Controllers\\UsersController.cs",
               "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\UsersController.cs",
               "RelativeToolTip": "Controllers\\UsersController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:13:06.996Z",
+              "WhenOpened": "2024-09-07T22:09:24.593Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\User.cs",
-              "RelativeDocumentMoniker": "Models\\User.cs",
-              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\User.cs",
-              "RelativeToolTip": "Models\\User.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-01T20:08:47.369Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ToDoItem.cs",
-              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\ToDoItem.cs",
-              "RelativeDocumentMoniker": "Models\\ToDoItem.cs",
-              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Models\\ToDoItem.cs",
-              "RelativeToolTip": "Models\\ToDoItem.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAiwA0AAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-29T18:08:17.597Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-24T15:31:30.95Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "ToDoItemController.cs",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\ToDoItemController.cs",
               "RelativeDocumentMoniker": "Controllers\\ToDoItemController.cs",
               "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Controllers\\ToDoItemController.cs",
               "RelativeToolTip": "Controllers\\ToDoItemController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAASwDIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T08:09:19.696Z"
+              "WhenOpened": "2024-09-04T17:58:51.919Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-04T18:12:16.712Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\mpoet\\Desktop\\MossProjekt\\MoSS-TodoLIst\\backend\\ToDoListAppBackend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-12T13:20:31.659Z"
+              "WhenOpened": "2024-09-03T21:58:00.372Z",
+              "EditorCaption": ""
             }
           ]
         }

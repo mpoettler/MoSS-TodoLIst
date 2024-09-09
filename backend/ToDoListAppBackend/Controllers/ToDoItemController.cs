@@ -112,5 +112,22 @@ namespace ToDoListAppBackend.Controllers
         {
             return _context.Tasks.Any(e => e.Id == id);
         }
+
+        private IEnumerable<ToDoItem> dummyTest()
+        {
+            return Enumerable.Range(1, 5).Select(index => new ToDoItem
+            {
+                Id = 1,
+                Title = "Test",
+                Description = "auch test",
+                Deadline = DateTime.Now,
+                IsCompleted = false,
+                ListId = 1,
+                Priority = "High",
+                ReminderTime = null
+            })
+            .ToArray();
+
+        }
     }
 }

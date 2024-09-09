@@ -14,6 +14,8 @@
     <style name="Theme.TodoAppMoss.Calendar" parent="Theme.AppCompat.Light.DarkActionBar"> </style>
 
     <style name="Theme.TodoAppMoss.EditTask" parent="Theme.AppCompat.Light.DarkActionBar"> </style>
+    <style name="Theme.TodoAppMoss.Register" parent="Theme.AppCompat.Light.DarkActionBar"> </style>
+
 
 
 

@@ -19,7 +19,7 @@
             android:id="@+id/todoEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Insert new Todo"
+            android:hint="Füge neuen Task ein"
             android:inputType="text"
             android:layout_marginBottom="16dp"
             android:minHeight="48dp"
@@ -44,7 +44,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Select Time" />
+                android:text="Zeitauswahl" />
         </LinearLayout>
 
         <!-- Alarm Dropdown -->
@@ -104,7 +104,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel"
+                android:text="Abbrechen"
                 android:layout_marginEnd="8dp" />
 
             <Button
@@ -112,7 +112,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Save"
+                android:text="Speichern"
                 android:background="?attr/selectableItemBackgroundBorderless" />
         </LinearLayout>
 

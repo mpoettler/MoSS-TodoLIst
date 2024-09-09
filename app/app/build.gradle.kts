@@ -4,14 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "com.example.todolistapp"
+    namespace = "at.fhjoanneum.todoappmoss"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 5
+        versionName = "5.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -28,6 +28,9 @@ android {
             )
         }
     }
+
+    
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -51,10 +54,24 @@ android {
 
 dependencies {
 
+
+    implementation(libs.core.ktx)
+    implementation(libs.androidx.junit.ktx)
+    testImplementation("junit:junit:4.13.2")
+    testImplementation("org.mockito.kotlin:mockito-kotlin:4.0.0")
+    testImplementation("org.mockito:mockito-core:5.0.0")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
+
+    androidTestImplementation("androidx.test:runner:1.5.2")
+
+
+
+    implementation(libs.gson)
+
     implementation(libs.androidx.recyclerview.v121)
     implementation(libs.okhttp.v493)
     implementation(libs.gson.v2101)
-
 
     implementation(libs.androidx.recyclerview)
 
